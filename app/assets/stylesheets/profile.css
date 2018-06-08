@@ -1,0 +1,7 @@
+.user-profile-container {
+  border: 1px solid black;
+  min-height: 400px;
+  width: 980px;
+  margin: 0 auto;
+  margin-top: 20px;
+}

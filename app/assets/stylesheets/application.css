@@ -13,3 +13,52 @@
  *= require_tree .
  *= require_self
  */
+
+/* CYESYES RESET ABOUT */
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 19px;
+}
+
+.fb-blue-bg {
+  background-color: #3b5998;
+}
+
+.light-grey {
+  color: #D3D3D3;
+}
+
+
+.darker-grey {
+  color: #8b9dc3;
+}
+
+
+body {
+  background-color: #dfe3ee;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: space-between;
+  border-style: border-box;
+}
+
+
+.light-text {
+  font-weight: 500;
+}
+
+.important-text {
+  font-weight: bold !important;
+}
+
+.tiny-font {
+  color: #777;
+  font-size: 11px;
+}

@@ -1,0 +1,11 @@
+.user-thumb {
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  margin-right: -10px;
+}
+
+.user-square {
+  height: 40px;
+  width: 40px;
+}

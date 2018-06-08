@@ -1,0 +1,143 @@
+
+.create-user-form {
+  padding: 20px;
+  width: 500px;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+}
+
+.create-user-form input {
+  border: 1px solid #8b9dc3;
+  padding: 6px 10px;
+  border-radius: 5px;
+  color: black;
+  background: white;
+  font-size: 20px;
+  margin: 2.5px 2.5px;
+}
+
+
+#warning {
+  border: 1px solid #b00;
+  border-radius: 5px;
+}
+
+.create-user-form label{
+  font-size: 18px;
+  padding: 10px;
+}
+
+.input-short {
+  width: 178px;
+}
+
+.input-long {
+  width: 360px;
+}
+
+#sign-up-button {
+  font-size: 24px;
+  background-color: #69a74e;
+  text-align: center;
+  padding: 7px 20px;
+  border-radius: 6px;
+  width: 180px;
+  color: white;
+  border: 1px solid black;
+}
+
+.nav-bar {
+  width: 100%;
+  height: 81px;
+  color: white;
+  display: flex;
+  letter-spacing: 0.25px;
+  border-bottom: 1px solid black;
+}
+
+.login-button {
+  font-weight: 700;
+  color: white;
+  background-color: #4267b2;
+  border: 1px solid black;
+  padding: 2px 5px;
+}
+
+.facebook-logo {
+  position: absolute;
+  font-size: 36px;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  font-family: "Lucida Grande", "Tahoma";
+  letter-spacing: -2px;
+  font-weight: 700;
+  left: 200px;
+  top: 25px;
+}
+
+.session-form {
+  position: relative;
+  font-size: 12px;
+  font-family: "Lucida Grande";
+  left: 800px;
+  top: 20px;
+}
+
+.session-form div {
+  margin-left: 10px;
+}
+
+.session-input {
+  background: white;
+  border: 1px solid black;
+  width: 142px;
+  font-size: 12px;
+  color: black;
+  padding: 3px;
+  margin-bottom: 1px;
+}
+
+.demo-login {
+  font-size: 24px;
+  background-color: #B76E79;
+  text-align: center;
+  padding: 7px 20px;
+  border-radius: 6px;
+  width: 180px;
+  color: white;
+  border: 1px solid black;
+}
+
+
+.splash-index {
+  padding: 40px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.splash-index div {
+  width: 480px;
+  height: 50px;
+  padding: 30px 20px 0px 20px ;
+  margin: 0 auto;
+}
+
+.strong-text {
+  font-family: 'Freight Sans Bold';
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.main-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+.gender-container {
+  width: 120px;
+  height: 40px;
+  padding: 5px;
+}
