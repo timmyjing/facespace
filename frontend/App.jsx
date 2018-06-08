@@ -14,7 +14,7 @@ const App = () => (
     <AuthRoute exact path="/" component={SessionNavBar} />
     <AuthRoute exact path="/" component={MainContainer} />
     <ProtectedRoute path="/" component={HeaderContainer} />
-    <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
+    <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
   </div>
 );
 

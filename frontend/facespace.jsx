@@ -5,6 +5,8 @@ import * as SessionApiUtil from './util/session_api_util';
 import * as UserApiUtil from './util/user_api_util';
 import configureStore from './store/store';
 import {requestUsers, requestUser, searchUsers} from './actions/user_actions';
+import {createFriendRequest, updateFriendRequest} from './util/friend_request_api_util';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -29,5 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestUser = requestUser;
   window.store = store;
   window.searchUsers = searchUsers;
+  window.createFriendRequest = createFriendRequest;
+  window.updateFriendRequest = updateFriendRequest;
+
+  
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });

@@ -1,7 +1,15 @@
 .user-profile-container {
-  border: 1px solid black;
-  min-height: 400px;
-  width: 980px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-top: none;
+  height: 358px;
+  width: 851px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 1px;
+  background-color: white;
+  /* padding: 50px; */
+  top: 42px;
+  right: 42px;
+  border-radius: 3px;
+  z-index: 0;
 }

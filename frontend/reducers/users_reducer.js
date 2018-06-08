@@ -12,20 +12,16 @@ const usersReducer = (state = defaultState, action) => {
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       newState.byId[action.user.id] = action.user;
-      // if (!newState.allIds.includes(action.user.id)) newState.allIds.push(action.user.id);
       return newState;
     case RECEIVE_USERS:
       return merge(newState, action.users);
     case RECEIVE_SEARCHED_USERS:
-      console.log(action.users);
       newState = merge({byId: action.users.byId}, newState);
-      console.log(newState);
       newState.allId = action.users.allId;
       return newState;
     case RECEIVE_USER:
-      // newState.byId[action.user.id] = action.user;
-      // if (!newState.allIds.includes(action.user.id)) newState.allIds.push(action.user.id);
-      return merge(newState, action.user);
+      newState.byId[action.user.id] = action.user;
+      return newState;
     default:
       return state;
   }

@@ -4,20 +4,18 @@ import UserImageThumb from '../image/user_image_thumb';
 import SearchContainer from '../search/search_container';
 
 const Header = ({user, logout}) => (
-  <div className="home-header flex-container">
+  <div className="home-header">
     <div className="header-left">
       <div id="fb-logo"><p>f</p></div>
       <SearchContainer />
     </div>
     <div className="header-right">
-      <div className="current-user-homepage">
-        <Link to={`/users/${user.id}`}>
-          <div className="header-current-user-link">
+
+        <Link className="header-current-user-link header-tab" to={`/users/${user.id}`}>
             <div><UserImageThumb img={user.profile_img_url} /></div>
             <div>{user.first_name}</div>
-          </div>
         </Link>
-      </div>
+
       <div className="header-tab"><Link to='/'>Home</Link></div>
       <div className="header-tab">Friend</div>
       <div className="header-tab">Messages</div>

@@ -9,18 +9,25 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     // FETCH USER PROFILE
+    this.props.requestUser(this.props.match.params.userId);
+  }
+
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.userId !== this.props.match.params.userId) {
+      this.props.requestUser(this.props.match.params.userId);
+    }
   }
 
   render() {
-    const {user} = this.props;
-    const userImg = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
+    const {user, updateFriendRequest, createFriendRequest } = this.props;
+    if (!user) return (<div />);
+    user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
     return (
       <div className="user-profile-container">
-        <img src={userImg} style={{height: "100px", width: "100px"}} />
-        <h1>{user.first_name} {user.last_name}</h1>
-        <UserProfileInfo user={user} />
+        <UserProfileInfo user={user} updateFriendRequest={updateFriendRequest} createFriendRequest={createFriendRequest} />
       </div>
-    )
+    );
   }
 }
 

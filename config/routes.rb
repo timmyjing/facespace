@@ -7,5 +7,6 @@ Rails.application.routes.draw do
        get "search", on: :collection
     end
     resource :session, only: [:create, :destroy]
+    resources :friend_requests, only: [:create, :update, :destroy]
   end
 end

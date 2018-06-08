@@ -8,6 +8,16 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token!
 
+  has_many :friends_requested,
+  foreign_key: :requester_id,
+  class_name: :FriendRequest,
+  dependent: :destroy
+
+  has_many :friend_requests,
+  foreign_key: :requestee_id,
+  class_name: :FriendRequest,
+  dependent: :destroy
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

@@ -4,24 +4,27 @@
   color: white;
   background-color: #4267b2;
   border-bottom: 1px solid black;
-  align-items: center;
-  /* position: fixed; */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .type-letters-here {
   width: 430px;
   background: white;
-  height: 22px;
+  height: 21.5px;
   margin: 10px;
   color: black;
   padding: 2px 10px;
   font-size: 14px;
+  font-weight: 200;
   border-style: border-box;
   border: 1px solid #3b5998;
+  letter-spacing: 0.2px;
   border-radius: 3px;
   margin-left: -5px;
   z-index: 5;
-  /* position: fixed; */
+  font-family: Arial;
 }
 
 
@@ -29,25 +32,29 @@
   width: 50%;
   display: flex;
   justify-content: center;
+  align-items: center;
   float: left;
+  height: 42px;
 }
 
 .header-right {
-  width: 500px;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 42px;
+  float: right;
 }
 
 #fb-logo {
   margin: 10px;
-  height: 23px;
+  height: 21px;
   width: 23px;
   min-width: 23px;
   min-height: 23px;
   background: white;
-  padding: 2px;
-  border-radius: 2px;
+  padding: 2.5px;
+  border-radius: 2.5px;
 }
 
 #fb-logo p {
@@ -67,23 +74,23 @@
 }
 
 .header-tab {
-  font-size: 13px;
+  font-size: 14px;
   height: 20px;
-  padding: 5px;
-  width: 90px;
+  padding: 6px 10px;
+  /* width: 75px; */
   text-align: center;
-  margin-top: 7px;
 }
 
 .header-current-user-link {
   display: flex;
   align-items: center;
-  padding: 4.5px 0px;
-  width: 80px;
-  margin: 0 auto;
 }
 
 .header-current-user-link div{
-  padding: 5px;
-  margin-left: 10px;
+  padding: 0px 8px 2.5px 6px;
+}
+
+.header-tab:hover {
+  background: #3b5998;
+  border-radius: 2.5px;
 }
