@@ -42,5 +42,5 @@ export const signup = user => dispatch => (
 
 
 export const demoLogin = () => (
-  login({email: "jeff", password: "password"})
+  login({email: "niartenyaw", password: "sweetawesome"})
 );
