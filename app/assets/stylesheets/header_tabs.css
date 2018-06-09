@@ -1,0 +1,26 @@
+.header-tab-dropdown {
+ border: 1px solid black;
+ position: absolute;
+ top: 43px;
+ right: 300px;
+ /* display: none; */
+ border-radius: 8px;
+ background-color: white;
+
+}
+
+
+.dropdown-item {
+  color: black;
+  height: 40px;
+  width: 320px;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  /* display: none; */
+}
+
+.header-tab-dropdown:hover {
+  display: block;
+}

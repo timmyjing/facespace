@@ -1,0 +1,14 @@
+.grey-button {
+  padding: 3.5px 9px;
+  border-radius: 2px;
+  background-color: #f7f7f7;
+  font-family: Arial;
+  font-size: 13px;
+  border: 1px solid #989898;
+  font-weight: 600;
+  color: #555;
+}
+
+.grey-button:hover {
+  background-color: #DCDCDC;
+}

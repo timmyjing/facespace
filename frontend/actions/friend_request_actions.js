@@ -12,15 +12,37 @@ export const createFriendRequest = requestee_id => dispatch => (
   FriendRequestApiUtil.createFriendRequest({requestee_id}).then( () => console.log("hi"))
 );
 
-export const sendFriendRequest = () => ({
-  type: 'SEND_FRIEND_REQUEST'
+export const sendFriendRequest = request => ({
+  type: SEND_FRIEND_REQUEST,
+  request
+});
+
+export const acceptedRequest = request => ({
+  type: ACCEPT_FRIEND_REQUEST,
+  request
+});
+
+export const declineRequest = request => ({
+  type: DECLINE_FRIEND_REQUEST,
+  request
 });
 
 
 export const acceptFriendRequest = id => dispatch => (
-  FriendRequestApiUtil.updateFriendRequest(id).then( () => console.log("hi"))
+  FriendRequestApiUtil.updateFriendRequest(id).then( request => dispatch(acceptedRequest(request)))
 );
 
 export const declineFriendRequest = id => dispatch => (
-  FriendRequestApiUtil.deleteFriendRequest(id)
+  FriendRequestApiUtil.deleteFriendRequest(id).then( request => dispatch(declineRequest(request)))
 );
+
+
+export const fetchFriendRequests = () => dispatch => (
+  FriendRequestApiUtil.fetchFriendRequests().then( payload => dispatch(receiveFriendRequests(payload)))
+);
+
+export const receiveFriendRequests = ({users, requests}) => ({
+    type: RECEIVE_FRIEND_REQUESTS,
+    users,
+    requests
+});

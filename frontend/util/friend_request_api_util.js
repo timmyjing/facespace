@@ -19,3 +19,11 @@ export const deleteFriendRequest = id => (
     method: 'DELETE'
   })
 );
+
+
+export const fetchFriendRequests = () => (
+  $.ajax({
+    url: `api/friend_requests`,
+    method: 'GET'
+  })
+);

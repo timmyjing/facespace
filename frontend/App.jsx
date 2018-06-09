@@ -7,12 +7,12 @@ import SessionNavBar from './components/session_form/session_nav_bar';
 import {AuthRoute, ProtectedRoute} from './util/route_util';
 import HeaderContainer from './components/header/header_container';
 import MainContainer from './components/user_form/main_container';
-import UserProfileContainer from './components/users/user_profile_container';
+import UserProfileContainer from './components/user_profile/user_profile_container';
 
 const App = () => (
   <div>
-    <AuthRoute exact path="/" component={SessionNavBar} />
-    <AuthRoute exact path="/" component={MainContainer} />
+    <AuthRoute path="/" component={SessionNavBar} />
+    <AuthRoute path="/" component={MainContainer} />
     <ProtectedRoute path="/" component={HeaderContainer} />
     <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
   </div>

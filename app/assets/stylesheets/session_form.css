@@ -141,3 +141,7 @@
   height: 40px;
   padding: 5px;
 }
+
+.nice-try {
+  text-decoration: underline;
+}

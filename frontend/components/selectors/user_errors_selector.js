@@ -22,6 +22,9 @@ const userErrorsSelector = errors => {
       case "Password is too short (minimum is 6 characters)":
         errorsObj["pw"] = "Enter a combination of at least six numbers, letters and punctuation marks (like ! and &).";
         break;
+      case "Email has already been taken":
+        errorsObj["email"] = "Email already in use.";
+        break;
       default:
         break;
     }

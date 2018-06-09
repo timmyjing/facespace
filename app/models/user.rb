@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   validates :email, :first_name, :last_name, :password_digest, :session_token, :birth_date, presence: true
   validates :gender, inclusion: { in: GENDERS }
+  validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
   attr_reader :password
 

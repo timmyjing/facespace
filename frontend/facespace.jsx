@@ -6,6 +6,7 @@ import * as UserApiUtil from './util/user_api_util';
 import configureStore from './store/store';
 import {requestUsers, requestUser, searchUsers} from './actions/user_actions';
 import {createFriendRequest, updateFriendRequest} from './util/friend_request_api_util';
+import {fetchFriendRequests} from './actions/friend_request_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const userId = window.currentUser.id;
     const userInfo = window.currentUser;
 
-    const preloadedState = { entities: { users: { byId: { [userId]: userInfo }, allId: []}},
+    const preloadedState = { entities: { users: { byId: { [userId]: userInfo }, allId: []},
+                                         friendRequest: { byId: {}, allId: []} },
                              sessions: { id: userId } };
     store = configureStore(preloadedState);
 
@@ -33,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.searchUsers = searchUsers;
   window.createFriendRequest = createFriendRequest;
   window.updateFriendRequest = updateFriendRequest;
+  window.fetchFriendRequests = fetchFriendRequests;
 
-  
+
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });
