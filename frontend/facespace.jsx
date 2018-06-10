@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './root';
+import configureStore from './store/store';
+
 import * as SessionApiUtil from './util/session_api_util';
 import * as UserApiUtil from './util/user_api_util';
-import configureStore from './store/store';
 import {requestUsers, requestUser, searchUsers} from './actions/user_actions';
 import {createFriendRequest, updateFriendRequest} from './util/friend_request_api_util';
 import {fetchFriendRequests} from './actions/friend_request_actions';
@@ -13,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let store;
 
   if (window.currentUser) {
-    console.log(window.currentUser);
     const userId = window.currentUser.id;
     const userInfo = window.currentUser;
 

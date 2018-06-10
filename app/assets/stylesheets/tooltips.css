@@ -10,16 +10,16 @@
     /* width: 300px; */
     min-width: 300px;
     /* max-width: 600px; */
-    min-height: 50px;
-    background-color: red;
+    min-height: 20px;
+    background-color: #CC3D3D;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 10px 0px;
+    padding: 5px 0px;
     position: absolute;
     z-index: 1;
-    bottom: -5%;
-    right: 101%;
+    bottom: 5%;
+    right: 102%;
     /* left: 140%; */
     margin-left: -60px;
     opacity: 0;
@@ -30,12 +30,12 @@
     content: "";
     position: absolute;
     /* top: 30%; */
-    bottom: 8%;
+    bottom: 15%;
     right: -0.5%;
     margin-left: -5px;
     border-width: 8px;
     border-style: solid;
-    border-color: red red transparent transparent;
+    border-color: #CC3D3D #CC3D3D transparent transparent;
     transform: rotate(45deg);
 }
 

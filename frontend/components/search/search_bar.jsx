@@ -9,39 +9,38 @@ class SearchBar extends React.Component {
     this.state = {
       query: ""
     };
+
     this.handleInput = this.handleInput.bind(this);
     this.fetchUsers = this.fetchUsers.bind(this);
+    this.renderUserIndex = this.renderUserIndex.bind(this);
   }
 
-  //
-  // componentDidMount() {
-  //   this.props.requestUsers();
-  // }
-
   handleInput(e) {
-    this.setState({query: e.target.value});
-    setTimeout( this.fetchUsers, 200);
+    this.setState({query: e.target.value}, this.fetchUsers);
   }
 
   fetchUsers() {
     this.props.searchUsers(this.state);
   }
 
-  componentWillReceive(newProps) {
-    console.log(newProps);
+  renderUserIndex() {
+    const {users} = this.props;
+    if (users) {
+      return <UserIndex users={users} />;
+    } else {
+      return null;
+    }
   }
 
 
   render() {
-
-    const {users} = this.props;
-
     return (
       <div className="search-container">
-          <input className="type-letters-here" type="text" value={this.state.query} onChange={this.handleInput} placeholder="Type letters into here until it does things..." />
-          <UserIndex users={users} />
+          <input className="type-letters-here" type="text" value={this.state.query}
+            onChange={this.handleInput} placeholder="Type letters into here until it does things..." />
+          {this.renderUserIndex()}
       </div>
-    )
+    );
   }
 
 }

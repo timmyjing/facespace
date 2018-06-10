@@ -29,7 +29,8 @@ class UserForm extends React.Component {
   render() {
 
     const {errors} = this.props;
-    
+    const genderInputWarnings = errors.gender ? "warning" : "";
+
     return (
       <div className="create-user-form">
         <h1 className="important-text">Sign Up</h1>
@@ -51,14 +52,16 @@ class UserForm extends React.Component {
             <div className="small-text">{'Why do I need to provide my birthday?'}</div>
           </div>
 
-          <form>
+          <form className="flex-container">
+              <div id={genderInputWarnings} className="gender-input">
+                <Input errorMsg={errors.gender} type="radio" name="gender" value="female" onChange={this.handleInput('gender')} />
+                <label for="gender-female">Female</label>
+              </div>
 
-              <Input errorMsg={errors.gender} type="radio" name="gender" value="female" onChange={this.handleInput('gender')} />
-              <label for="gender-female">Female</label>
-
-              <Input errorMsg={errors.gender} type="radio" name="gender" value="male" onChange={this.handleInput('gender')} />
-              <label for="gender-male">Male</label>
-
+              <div id={genderInputWarnings} className="gender-input">
+                <Input errorMsg={errors.gender} type="radio" name="gender" value="male" onChange={this.handleInput('gender')} />
+                <label for="gender-male">Male</label>
+              </div>
           </form>
 
 

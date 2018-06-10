@@ -18,9 +18,15 @@
 }
 
 
+.gender-input{
+  height: 60px;
+  padding-top: 20px;
+}
+
 #warning {
-  border: 1px solid #b00;
-  border-radius: 5px;
+  /* border: 1px solid #b00;
+  border-radius: 5px; */
+  outline: 1.5px solid #CC3D3D;
 }
 
 .create-user-form label{
@@ -85,8 +91,9 @@
   top: 20px;
 }
 
-.session-form div {
+.session-form-div {
   margin-left: 10px;
+  /* margin-right: 10px; */
 }
 
 .session-input {

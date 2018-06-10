@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router';
 import {Link} from 'react-router-dom';
 import errorModal from '../modal_errors/modal_error';
+import Input from '../user_form/input.jsx'
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -20,34 +21,29 @@ class SessionForm extends React.Component {
     this.props.submit(this.state);
   }
 
-  displayErrors() {
-    const { error } = this.props;
-    return <ErrorModal errorMsg={error[0]} />;
-  }
 
   render() {
-
-    const errorModal = (this.props.errors[0] !== undefined) ? (<div><div className="modal-error"><p>{this.props.errors[0]}</p></div><div className="modal-error-triangle"></div></div>) : "";
-
+    const errorMsg = this.props.errors === undefined ?  null : this.props.errors[0];
+    console.log(errorMsg);
+    console.log(this.props.errors);
     return (
       <div className="session-form">
         <form className="flex-container" onSubmit={this.handleSubmit}>
-          <div>
+          <div className="session-form-div">
           <label>Email or Phone:
-            <br />
-            {errorModal}
-            <input className="session-input" type="text" value={this.state.email} onChange={this.handleInput('email')}/>
+             <br />
+             <Input errorMsg={errorMsg} className="session-input" type="text" value={this.state.email} onChange={this.handleInput('email')}/>
           </label>
           </div>
-          <div>
+          <div className="session-form-div">
             <label>Password:
               <br />
-              <input className="session-input" type="password" value={this.state.password} onChange={this.handleInput('password')}/>
+              <Input errorMsg={errorMsg} className="session-input" type="password" value={this.state.password} onChange={this.handleInput('password')}/>
             </label>
               <br />
             <Link to="/"><span className="light-grey">{'Forgot account?'}</span></Link>
           </div>
-          <div>
+          <div className="session-form-div">
             <br />
             <button className='login-button' type="submit">Log In</button>
           </div>

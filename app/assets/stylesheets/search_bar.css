@@ -1,6 +1,6 @@
 .search-index {
   border-style: border-box;
-  width: 430px;
+  width: 450px;
   margin-top: -10px;
   margin-left: -5px;
   padding: 0px 10px;
@@ -12,7 +12,7 @@
   position: absolute;
   /* top: -10px;
   left: -5px; */
-  z-index: 0;
+  z-index: 4;
 }
 
 
@@ -26,7 +26,7 @@
   font-size: 16px;
   display: flex;
   justify-content: center;
-  z-index: 3;
+  z-index: 4;
 }
 
 
@@ -38,7 +38,7 @@
   display: flex-wrap;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 4;
 }
 .search-container {
   width: 450px;

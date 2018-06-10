@@ -1,5 +1,7 @@
 import React from 'react';
-import UserProfileInfo from './user_profile_info';
+import UserProfileHeader from './user_profile_header';
+import UserProfileDetail from './user_profile_detail'
+import UserProfileFriendsContainer from './user_profile_friends_container';
 
 
 class UserProfile extends React.Component {
@@ -20,12 +22,15 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const {user, updateFriendRequest, createFriendRequest } = this.props;
-    if (!user) return (<div />);
+    const {user, updateFriendRequest, createFriendRequest , session, users} = this.props;
+    if (!user || !user.friends_id) return null;
+    const friends = user.friends_id.map( id => users[id]);
     user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
     return (
       <div className="user-profile-container">
-        <UserProfileInfo user={user} updateFriendRequest={updateFriendRequest} createFriendRequest={createFriendRequest} />
+        <UserProfileHeader session={session} user={user} updateFriendRequest={updateFriendRequest} createFriendRequest={createFriendRequest} />
+        <UserProfileDetail user={user} />
+        <UserProfileFriendsContainer friends={friends} />
       </div>
     );
   }

@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
-      render 'api/users/show'
+      render 'api/users/create'
     else
       render json: @user.errors.full_messages, status: 422
     end
@@ -19,6 +19,8 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user
+      # loading friends this way might not be the most efficient for larger scales
+      @friends = @user.friends
       render 'api/users/show'
     else
       render json: ['Nice Try - niartenyaw'], status: 404
@@ -27,14 +29,18 @@ class Api::UsersController < ApplicationController
 
   def search
     if params[:query].present?
-      @users = User.where('first_name ~ ?', params[:query])
-      render 'api/users/index'
-
+      full_name = params[:query].split
+      if full_name.length == 2
+        @users = User.where('first_name ~ ? AND last_name ~ ?', full_name[0], full_name[1])
+      else
+        @users = User.where('first_name ~ ?', full_name[0])
+      end
     else
       @users = User.none
-      render 'api/users/index'
     end
+    render 'api/users/index'
   end
+
 
 
   private

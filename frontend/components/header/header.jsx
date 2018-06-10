@@ -6,7 +6,7 @@ import FriendRequestsContainer from '../friend_request/friend_requests_container
 const Header = ({user, logout}) => (
   <div className="home-header">
     <div className="header-left">
-      <div id="fb-logo"><p>f</p></div>
+      <Link to="/" ><div id="fb-logo"><p>f</p></div></Link>
       <SearchContainer />
     </div>
     <div className="header-right">

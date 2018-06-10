@@ -17,15 +17,18 @@ const usersReducer = (state = defaultState, action) => {
     case RECEIVE_USERS:
       return merge(newState, action.users);
     case RECEIVE_SEARCHED_USERS:
+      console.log('fromusers')
       newState = merge(action.users, newState);
-      newState.allId = action.users.allId;
+      console.log(state);
+      console.log(action);
+      console.log(newState);
+      // newState.allId = action.users.allId;
       return newState;
     case RECEIVE_USER:
       newState.byId[action.user.id] = action.user;
       return newState;
     case RECEIVE_FRIEND_REQUESTS:
-     console.log(action.users);
-      newState = merge({byId: action.users.byId}, newState);
+      newState = merge(action.users, newState);
       return newState;
     default:
       return state;

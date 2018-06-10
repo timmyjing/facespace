@@ -6,7 +6,9 @@ import {createFriendRequest, acceptFriendRequest, declineFriendRequest} from '..
 
 
 const mapStateToProps = (state, ownProps) => ({
-  user: state.entities.users.byId[ownProps.match.params.userId]
+  user: state.entities.users.byId[ownProps.match.params.userId],
+  session: state.sessions.id,
+  users: state.entities.users.byId
 });
 
 const mapDispatchToProps = dispatch => ({
