@@ -1,12 +1,15 @@
 .grey-button {
-  padding: 3.5px 9px;
+  padding: 4px 7px;
   border-radius: 2px;
   background-color: #f7f7f7;
   font-family: Arial;
-  font-size: 13px;
+  font-size: 12.5px;
   border: 1px solid #989898;
   font-weight: 600;
   color: #555;
+  height: 20px;
+  margin-left: 10px;
+  text-align: center;
 }
 
 .grey-button:hover {

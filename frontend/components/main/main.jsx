@@ -1,10 +1,15 @@
 import React from 'react';
 
-class Main extends React.Component {
 
+// REQUEST CURRENT USER TEMPORARILY USED UNTIL FETCH FEED IS MADE
+
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
-    this.props.fetchFeed();
+    this.props.requestCurrentUser(this.props.currentUser.id);
   }
 
 

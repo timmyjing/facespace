@@ -4,12 +4,25 @@ json.requests do
       json.set! request.id do
         json.extract! request, :requester_id, :id
       end
+    @outgoing.each do |outgoing|
+      json.set! outgoing.id do
+        json.extract! outgoing, :id, :requestee_id
+      end
     end
   end
+end
 
 
-  json.allId do
+  json.outgoingId do
+    json.array! @outgoing.pluck(:id)
+  end
+
+  json.incomingId do
     json.array! @requests.pluck(:id)
+  end
+
+  json.outgoingUserId do
+    json.array! @outgoing.pluck(:requestee_id)
   end
 end
 

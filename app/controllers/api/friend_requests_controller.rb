@@ -2,21 +2,24 @@ class Api::FriendRequestsController < ApplicationController
 
   def index
     @requests = current_user.friend_requests
-    @users = @requests.map {|request| request.requester}
+    incoming_users = @requests.map {|request| request.requester}
+    @outgoing = current_user.friends_requested
+    outgoing_users = @outgoing.map {|request| request.requestee}
+    @users = incoming_users + outgoing_users
     render 'api/friend_requests/index'
   end
 
   def create
-    if current_user.friends.find(request_params[:requestee_id])
-      render json: ['Already friends!'], status: 404
-      return
-    end
-    @request = FriendRequest.new(request_params)
-    @request.requester_id = current_user.id
-    if @request.save
-      render 'api/friend_requests/show'
+    unless current_user.is_friends?(request_params[:requestee_id])
+      @request = FriendRequest.new(request_params)
+      @request.requester_id = current_user.id
+      if @request.save
+        render 'api/friend_requests/show'
+      else
+        render json: ['Cannot create friend request.'], status: 401
+      end
     else
-      render json: ['Cannot create friend request.'], status: 401
+      render json: ['Already friends.'], status: 404
     end
   end
 

@@ -20,13 +20,23 @@ class User < ApplicationRecord
   dependent: :destroy
 
   has_many :friendships,
-  foreign_key: :user_id,
   class_name: :Friendship,
   dependent: :destroy
 
   has_many :friends,
   through: :friendships
 
+  has_many :authored_posts,
+  foreign_key: :author_id,
+  class_name: :Post
+
+  has_many :received_posts,
+  foreign_key: :receiver_id,
+  class_name: :Post
+
+  def is_friends?(id)
+    self.friends.exists?(id)
+  end
 
 
   def self.find_by_credentials(email, password)

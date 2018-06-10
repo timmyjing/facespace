@@ -4,16 +4,22 @@ import React from 'react';
 import {fetchFriendRequests, acceptFriendRequest, declineFriendRequest} from '../../actions/friend_request_actions';
 
 class FriendRequestContainer extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      loading: true
+    };
+  }
 
   componentWillMount() {
-    // FETCH CURRENT SESSION FRIEND REQUESTS
-    this.props.fetchFriendRequests();
+    this.props.fetchFriendRequests().then( () => this.setState({loading: false}));
   }
 
 
   render() {
-    if (this.props.friendRequests === undefined) return (<div>Loading</div>);
+    if (this.state.loading === true) return null;
     const {users, friendRequests, declineFriendRequest, acceptFriendRequest} = this.props;
+    console.log(this.props);
 
     return (
         <FriendRequestIndex requests={friendRequests} users={users} decline={declineFriendRequest} accept={acceptFriendRequest} />
@@ -24,7 +30,7 @@ class FriendRequestContainer extends React.Component {
 
 const mapStateToProps = state => ({
   users:  state.entities.users.byId,
-  friendRequests: state.entities.friendRequests.allId.map( id => state.entities.friendRequests.byId[id])
+  friendRequests: state.entities.friendRequests.incomingId.map( id => state.entities.friendRequests.byId[id])
 });
 
 const mapDispatchToProps = dispatch => ({

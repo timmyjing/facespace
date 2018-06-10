@@ -2,7 +2,9 @@ import {RECEIVE_FRIEND_REQUESTS, ACCEPT_FRIEND_REQUEST, DECLINE_FRIEND_REQUEST, 
 import merge from 'lodash/merge';
 const defaultState = ({
   byId: {},
-  allId: []
+  outgoingId: [],
+  incomingId: [],
+  outgoingUserId: []
 });
 
 const friendRequestsReducer = (state = defaultState, action ) => {
@@ -11,10 +13,15 @@ const friendRequestsReducer = (state = defaultState, action ) => {
   switch(action.type) {
     case RECEIVE_FRIEND_REQUESTS:
       return action.requests;
+    case SEND_FRIEND_REQUEST:
+      newState = merge(newState, {byId: {[action.request.id]: action.request}})
+      newState.outgoingId.push(action.request.id);
+      newState.outgoingUserId.push(action.request.requestee_id);
+      return newState;
     case ACCEPT_FRIEND_REQUEST:
     case DECLINE_FRIEND_REQUEST:
       delete newState.byId[action.request.id]
-      newState.allId = Object.keys(newState.byId);
+      newState.incomingId = Object.keys(newState.byId);
       return newState;
     default:
       return state;

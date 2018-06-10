@@ -9,7 +9,7 @@ export const ACCEPT_FRIEND_REQUEST = 'ACCEPT_FRIEND_REQUEST';
 export const DECLINE_FRIEND_REQUEST = 'DECLINE_FRIEND_REQUEST';
 
 export const createFriendRequest = requestee_id => dispatch => (
-  FriendRequestApiUtil.createFriendRequest({requestee_id}).then(request => console.log(request))
+  FriendRequestApiUtil.createFriendRequest({requestee_id}).then(request => dispatch(sendFriendRequest(request)))
 );
 
 export const sendFriendRequest = request => ({

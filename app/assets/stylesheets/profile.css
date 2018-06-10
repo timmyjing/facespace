@@ -72,7 +72,7 @@
   right: 20px;
   bottom: 40px;
   display: flex;
-  justify-content: space-between;
+  width: 225px;
   align-items: center;
 }
 
@@ -105,8 +105,8 @@
 .friend-list-container {
   position: absolute;
   border: 0.5px solid #ddd;
-  width: 326px;
-  padding: 2px;
+  width: 310px;
+  padding: 5px 10px;
   top: 520px;
   display: flex;
   flex-direction: row;

@@ -22,13 +22,14 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const {user, updateFriendRequest, createFriendRequest , session, users} = this.props;
+    const {user, updateFriendRequest, createFriendRequest , users, currentUser, friendRequests} = this.props;
     if (!user || !user.friends_id) return null;
     const friends = user.friends_id.map( id => users[id]);
     user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
     return (
       <div className="user-profile-container">
-        <UserProfileHeader session={session} user={user} updateFriendRequest={updateFriendRequest} createFriendRequest={createFriendRequest} />
+        <UserProfileHeader currentUser={currentUser} user={user} updateFriendRequest={updateFriendRequest}
+          outgoingUserId={friendRequests.outgoingUserId} createFriendRequest={createFriendRequest} />
         <UserProfileDetail user={user} />
         <UserProfileFriendsContainer friends={friends} />
       </div>

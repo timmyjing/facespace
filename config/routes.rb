@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :friend_requests, only: [:index, :create, :update, :destroy]
     resources :friendship, only: [:destroy]
+    resources :posts, only: [:create, :destroy, :update, :index]
   end
 end
