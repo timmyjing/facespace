@@ -1,0 +1,19 @@
+.main-container-home {
+  position: absolute;
+  top: 42px;
+  left: 400px;
+}
+
+
+.main-post-index {
+  position: relative;
+  margin: 20px auto;
+  top: 20px;
+}
+
+.post-form-main {
+  position: relative;
+  top: 20px;
+  right: 0px;
+  margin: 0 auto;
+}

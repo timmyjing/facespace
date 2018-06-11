@@ -24,7 +24,7 @@ class Api::UsersController < ApplicationController
       # @friends = @user.friends
       render 'api/users/show'
     else
-      render json: ['Nice Try - niartenyaw'], status: 404
+      render json: ['User not found.'], status: 404
     end
   end
 

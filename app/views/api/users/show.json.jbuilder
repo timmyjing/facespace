@@ -13,7 +13,7 @@ json.users do
         json.array! @user.friends.pluck(:id)
       end
       json.post_id do
-        json.array! @user.received_posts.pluck(:id)
+        json.array! @user.received_posts.pluck(:id).sort.reverse
       end
     end
   end
@@ -23,11 +23,11 @@ json.posts do
   json.byId do
     @user.received_posts.each do |post|
       json.set! post.id do
-        json.extract! post, :id, :content, :author_id, :receiver_id
+        json.extract! post, :id, :content, :author_id, :receiver_id, :created_at
       end
     end
   end
   json.allId do
-    json.array! @user.received_posts.pluck(:id)
+    json.array! @user.received_posts.pluck(:id).sort.reverse #reverse ID here so posts are sorted by most recent
   end
 end

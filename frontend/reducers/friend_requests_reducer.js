@@ -14,7 +14,8 @@ const friendRequestsReducer = (state = defaultState, action ) => {
     case RECEIVE_FRIEND_REQUESTS:
       return action.requests;
     case SEND_FRIEND_REQUEST:
-      newState = merge(newState, {byId: {[action.request.id]: action.request}})
+      // newState = merge(newState, {byId: {[action.request.id]: action.request}})
+      newState.byId[action.request.id] = action.request;
       newState.outgoingId.push(action.request.id);
       newState.outgoingUserId.push(action.request.requestee_id);
       return newState;

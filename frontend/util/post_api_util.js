@@ -12,3 +12,11 @@ export const requestPost = id => (
     method: 'GET'
   })
 );
+
+
+export const requestPosts = () => (
+  $.ajax({
+    url: `api/posts`,
+    method: 'GET'
+  })
+);

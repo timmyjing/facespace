@@ -3,6 +3,7 @@ import UserProfileHeader from './user_profile_header';
 import UserProfileDetail from './user_profile_detail'
 import UserProfileFriendsContainer from './user_profile_friends_container';
 import CreatePostFormContainer from '../post/create_post_form_container';
+import PostIndexContainer from '../post/post_index_container';
 
 
 class UserProfile extends React.Component {
@@ -34,6 +35,7 @@ class UserProfile extends React.Component {
         <UserProfileDetail user={user} />
         <UserProfileFriendsContainer friends={friends} />
         <CreatePostFormContainer className={"post-form-profile"} user={user} />
+        <PostIndexContainer />
       </div>
     );
   }

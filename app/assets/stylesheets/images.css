@@ -26,4 +26,5 @@
 .friend-list-image {
   height: 101px;
   width: 101px;
+  outline: 2px solid white;
 }

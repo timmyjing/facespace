@@ -2,9 +2,6 @@
   color: black;
   width: 500px;
   height: 150px;
-  position: relative;
-  top: 370px;
-  right: -340px;
   background: white;
   border-radius: 5px;
   border: 1px solid #dddfe2;
@@ -14,14 +11,9 @@
 .post-form-profile {
   position: relative;
   top: 370px;
-  right: -340px;
+  right: -350px;
 }
 
-
-.post-form-main {
-  position: relative;
-  top: 60px;
-}
 
 .post-form-input {
   display: flex;

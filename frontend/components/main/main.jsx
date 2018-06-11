@@ -1,5 +1,6 @@
 import React from 'react';
 import CreatePostFormContainer from '../post/create_post_form_container';
+import MainPostIndexContainer from '../post/main_post_index_container';
 
 
 // REQUEST CURRENT USER TEMPORARILY USED UNTIL FETCH FEED IS MADE
@@ -16,8 +17,9 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main-container-home">
         <CreatePostFormContainer className="post-form-main" currentUser={this.props.currentUser} user={this.props.currentUser} />
+        <MainPostIndexContainer />
       </div>)
 
   }

@@ -1,16 +1,16 @@
 json.requests do
   json.byId do
-    @requests.each do |request|
+    (@requests + @outgoing).each do |request|
       json.set! request.id do
-        json.extract! request, :requester_id, :id
-      end
-    @outgoing.each do |outgoing|
-      json.set! outgoing.id do
-        json.extract! outgoing, :id, :requestee_id
+        json.extract! request, :requester_id, :id, :requestee_id
       end
     end
+    # @outgoing.each do |outgoing|
+    #   json.set! outgoing.id do
+    #     json.extract! outgoing, :id, :requestee_id
+    #   end
+    # end
   end
-end
 
 
   json.outgoingId do

@@ -1,6 +1,9 @@
 class Api::PostsController < ApplicationController
 
   def index
+    # work on a better way to do this through associations
+    @posts = Post.all.includes(:author, :receiver)
+    render 'api/posts/index'
   end
 
   def create

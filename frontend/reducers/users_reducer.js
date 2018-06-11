@@ -1,6 +1,7 @@
 import {RECEIVE_CURRENT_USER} from '../actions/session_actions';
 import {RECEIVE_USER, RECEIVE_USERS, RECEIVE_SEARCHED_USERS} from '../actions/user_actions';
 import {RECEIVE_FRIEND_REQUESTS} from '../actions/friend_request_actions';
+import {RECEIVE_POSTS, RECEIVE_POST} from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -17,7 +18,7 @@ const usersReducer = (state = defaultState, action) => {
     case RECEIVE_USERS:
       return merge(newState, action.users);
     case RECEIVE_SEARCHED_USERS:
-      console.log('fromusers')
+      console.log('from users')
       newState = merge(action.users, newState);
       console.log(state);
       console.log(action);
@@ -32,6 +33,12 @@ const usersReducer = (state = defaultState, action) => {
     case RECEIVE_FRIEND_REQUESTS:
       newState = merge(action.users, newState);
       return newState;
+    case RECEIVE_POST:
+      console.log(action.post);
+      newState.byId[action.post.receiver_id].post_id.unshift(action.post.id);
+      return newState;
+    case RECEIVE_POSTS:
+      return merge(action.users, newState);
     default:
       return state;
   }
