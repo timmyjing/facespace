@@ -7,7 +7,7 @@ const UserIndexItem = ({user}) => (
   <Link to={`/users/${user.id}`}>
     <li className="user-search-item">
       <div>
-        <UserImageThumb img={user.profile_img_url}/>
+        <UserImageThumb className="user-square" img={user.profile_img_url}/>
       </div>
       <div>
         {user.first_name} {user.last_name}

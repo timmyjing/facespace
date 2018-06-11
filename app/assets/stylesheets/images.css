@@ -10,6 +10,12 @@
   width: 40px;
 }
 
+.post-user-thumb {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+}
 
 .user-profile-image {
   height: 160px;

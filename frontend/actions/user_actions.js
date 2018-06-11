@@ -16,9 +16,9 @@ export const receiveUsers = users => ({
 });
 
 // not sure if this is necessary now...will refactor later
-export const receiveUser = user => ({
+export const receiveUser = payload => ({
   type: RECEIVE_USER,
-  user
+  payload
 });
 
 export const receiveSearchedUsers = users => ({
@@ -39,7 +39,7 @@ export const requestUsers = () => dispatch => (
 // HAD TO CHANGE RECEIVEUSER TO RECEIVEUSERS AS FRIENDS NEED TO BE IN USER SLICE OF STATE
 export const requestUser = id => dispatch => (
   UserApiUtil.requestUser(id)
-    .then(user => dispatch(receiveUsers(user)), errors =>
+    .then(payload => dispatch(receiveUser(payload)), errors =>
     console.log(errors.responseJSON))
 );
 

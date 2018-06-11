@@ -25,8 +25,10 @@ const usersReducer = (state = defaultState, action) => {
       // newState.allId = action.users.allId;
       return newState;
     case RECEIVE_USER:
-      newState.byId[action.user.id] = action.user;
-      return newState;
+      // newState = merge(action.payload.users, newState);
+      // newState.byId[action.payload.user.id] = action.user;
+      // return newState;
+      return merge(newState, action.payload.users);
     case RECEIVE_FRIEND_REQUESTS:
       newState = merge(action.users, newState);
       return newState;

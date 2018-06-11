@@ -26,7 +26,6 @@
 
 
 .user-cover-photo {
-  border: 1px solid black;
   background: #1d2129;
   width: 851px;
   height: 315px;
@@ -36,6 +35,14 @@
   left: -1px;
 }
 
+.user-cover-photo img {
+  width: 851px;
+  height: 315px;
+  /* margin: 0 auto; */
+  position: relative;
+  /* z-index: -2px;
+  left: -1px; */
+}
 
 .user-profile-image-container {
   background: white;
@@ -63,6 +70,8 @@
   line-height: 30px;
   max-width: 275px;
   position: relative;
+  text-shadow: 0 0 3px rgba(0,0,0,1);
+  text-rendering: optimizelegibility;
 }
 
 .user-profile-buttons {

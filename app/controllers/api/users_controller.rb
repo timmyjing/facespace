@@ -17,10 +17,11 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @user = User.includes(:friends, :received_posts).find(params[:id])
     if @user
       # loading friends this way might not be the most efficient for larger scales
-      @friends = @user.friends
+      # @friends = @user.friends
       render 'api/users/show'
     else
       render json: ['Nice Try - niartenyaw'], status: 404

@@ -12,7 +12,7 @@ const Header = ({user, logout}) => (
     <div className="header-right">
 
         <Link className="header-current-user-link header-tab" to={`/users/${user.id}`}>
-            <div><UserImageThumb img={user.profile_img_url} /></div>
+            <div><UserImageThumb className="user-thumb" img={user.profile_img_url} /></div>
             <div>{user.first_name}</div>
         </Link>
 

@@ -8,6 +8,7 @@ import * as UserApiUtil from './util/user_api_util';
 import {requestUsers, requestUser, searchUsers} from './actions/user_actions';
 import {createFriendRequest, updateFriendRequest} from './util/friend_request_api_util';
 import {fetchFriendRequests} from './actions/friend_request_actions';
+import {createPost} from './actions/post_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createFriendRequest = createFriendRequest;
   window.updateFriendRequest = updateFriendRequest;
   window.fetchFriendRequests = fetchFriendRequests;
+  window.createPost = createPost;
 
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
