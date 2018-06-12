@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Main from './main';
-import {fetchFeed, requestUser} from '../../actions/user_actions';
+import {fetchFeed, requestCurrentUser} from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
   users: state.entities.users.byId,
@@ -9,8 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchFeed: () => dispatch(fetchFeed()),
-  // requestCurrentUser to grab current user info and friends to test friendship for now
-  requestCurrentUser: id => dispatch(requestUser(id))
+  requestCurrentUser: () => dispatch(requestCurrentUser())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

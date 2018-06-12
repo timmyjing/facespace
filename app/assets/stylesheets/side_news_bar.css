@@ -1,0 +1,25 @@
+.side-news-bar {
+  border: 1px solid #ddd;
+  position: absolute;
+  left: 520px;
+  top: 12px;
+  border-radius: 5px;
+  background: white;
+  padding: 10px;
+  width: 400px;
+
+
+}
+
+.side-news-bar li {
+  padding: 10px;
+}
+
+
+.app-academy-ad-lol {
+  background-image: url('https://i1.wp.com/aggregateblog.com/wp-content/uploads/2017/12/null-16.png?resize=524%2C492&ssl=1');
+  height: 350px;
+  width: 350px;
+  background-position: center;
+  background-size: 395px 395px;
+}

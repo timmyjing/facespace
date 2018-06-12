@@ -29,6 +29,7 @@ class Api::UsersController < ApplicationController
   end
 
   def search
+    @users = User.none
     if params[:query].present?
       full_name = params[:query].split
       if full_name.length == 2
@@ -36,8 +37,8 @@ class Api::UsersController < ApplicationController
       else
         @users = User.where('first_name ~ ?', full_name[0])
       end
-    else
-      @users = User.none
+    # else
+    #   @users = User.none
     end
     render 'api/users/index'
   end

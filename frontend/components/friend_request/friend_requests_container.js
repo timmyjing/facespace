@@ -19,6 +19,7 @@ class FriendRequestContainer extends React.Component {
   render() {
     if (this.state.loading === true) return null;
     const {users, friendRequests, declineFriendRequest, acceptFriendRequest} = this.props;
+    if (friendRequests === undefined) return null;
     return (
         <FriendRequestIndex requests={friendRequests} users={users} decline={declineFriendRequest} accept={acceptFriendRequest} />
     );

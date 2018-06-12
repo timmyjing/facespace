@@ -17,7 +17,7 @@ const Header = ({user, logout}) => (
         </Link>
 
       <div className="header-tab"><Link to='/'>Home</Link></div>
-      <div className="header-tab">Friends<FriendRequestsContainer  /></div>
+      <div className="dropdown header-tab">Friends<FriendRequestsContainer  /></div>
       <div className="header-tab">Messages</div>
       <div className="header-tab">Notifications</div>
       <div className="header-tab">

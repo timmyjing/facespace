@@ -7,7 +7,7 @@ const FriendRequestIndex = ({users, requests, accept, decline}) => {
     return (<FriendRequestIndexItem key={request.id} requester={requester} accept={() => accept(request.id)} decline={() => decline(request.id)} />);
   });
 
-  return (<ul className="header-tab-dropdown"> {requestItems} </ul>);
+  return (<ul className="header-tab-dropdown dropdown-content">{requestItems}</ul>);
 };
 
 

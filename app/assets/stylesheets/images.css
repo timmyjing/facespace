@@ -28,3 +28,10 @@
   width: 101px;
   outline: 2px solid white;
 }
+
+
+.tiny-nav-image {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}

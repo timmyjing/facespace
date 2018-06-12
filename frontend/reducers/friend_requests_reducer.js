@@ -4,15 +4,17 @@ const defaultState = ({
   byId: {},
   outgoingId: [],
   incomingId: [],
-  outgoingUserId: []
+  outgoingUserId: [],
+  incomingUserId: []
 });
 
 const friendRequestsReducer = (state = defaultState, action ) => {
   let newState = merge( {}, state);
+  let userIndex, idIndex;
 
   switch(action.type) {
     case RECEIVE_FRIEND_REQUESTS:
-      return action.requests;
+      return merge( newState, action.requests);
     case SEND_FRIEND_REQUEST:
       // newState = merge(newState, {byId: {[action.request.id]: action.request}})
       newState.byId[action.request.id] = action.request;
@@ -22,7 +24,10 @@ const friendRequestsReducer = (state = defaultState, action ) => {
     case ACCEPT_FRIEND_REQUEST:
     case DECLINE_FRIEND_REQUEST:
       delete newState.byId[action.request.id]
-      newState.incomingId = Object.keys(newState.byId);
+      userIndex = newState.incomingUserId.indexOf(action.request.requester_id);
+      idIndex = newState.incomingId.indexOf(action.request.id);
+      newState.incomingId = newState.incomingId.slice(0, idIndex).concat(newState.incomingId.slice(idIndex + 1));
+      newState.incomingUserId = newState.incomingUserId.slice(0, userIndex).concat(newState.incomingUserId.slice(userIndex + 1));
       return newState;
     default:
       return state;

@@ -31,7 +31,6 @@
   margin: 0 auto;
   position: absolute;
   z-index: -2px;
-  left: -1px;
 }
 
 .user-cover-photo img {
@@ -101,7 +100,7 @@
   height: 101px;
   width: 101px;
   margin-top: -2px;
-  margin-bottom: -35px;
+  margin-bottom: -48px;
 }
 
 .profile-container {
@@ -119,19 +118,18 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
 }
 
 .friend-list-item-name {
   position: relative;
   color: white;
-  top: 10px;
+  bottom: -20%;
   right: -3px;
-  height: 50px;
   font-family: Arial;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -146,4 +144,46 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: 800 !important;
+}
+
+.user-profile-tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  border-top: 1px solid #ccc;
+  top: 143px;
+}
+
+.user-profile-tabs li {
+  border-right: 1px solid #e9eaed;
+  color: #365899;
+  padding: 11px 14px;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.user-profile-tabs li:first-child {
+  border-left: 1px solid #e9eaed;
+}
+
+.user-profile-tabs li:hover {
+  background: #e9ebee;
+  cursor: pointer;
+}
+
+
+.friend-list-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.friend-list-flex a {
+  height: 101px;
+  width: 101px;
+  margin: 1px;
 }

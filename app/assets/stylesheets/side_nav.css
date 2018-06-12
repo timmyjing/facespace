@@ -1,0 +1,35 @@
+.side-nav-bar {
+  position: absolute;
+  left: -185px;
+  top: 15px;
+  padding: 10px;
+  width: 160px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-family: Arial;
+}
+
+.side-nav-bar li {
+  padding: 5px 10px;
+  width: 148px;
+  display: inline-flex;
+  margin-bottom: 2.5px;
+}
+
+.side-nav-bar li:hover {
+  cursor: pointer;
+  background: #dfe3ee;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+
+.side-nav-bar span {
+  font-size: 12px;
+  font-weight: 300px;
+  margin-left: 5px;
+}

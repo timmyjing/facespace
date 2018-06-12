@@ -1,27 +1,36 @@
 .header-tab-dropdown {
- border: 1px solid black;
- position: absolute;
- top: 42px;
- right: 25%;
+ border-left: 1px solid #ccc;
+ border-right: 1px solid #ccc;
+ border-bottom: 1px solid #ccc;
  /* display: none; */
- border-radius: 8px;
+ border-radius: 3px;
  background-color: white;
  z-index: 5;
+ right: 0px;
+ top: 42px;
 }
 
 
 .dropdown-item {
-  color: black;
-  height: 40px;
-  width: 320px;
-  position: relative;
+  width: 340px;
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  /* display: none; */
   z-index: 5;
+  display: inline-flex;
+  justify-content: space-between;
+  /* top: 19px;
+  right: -10px; */
 }
 
-.header-tab-dropdown:hover {
-  display: block;
+.header-tab {
+  font-size: 14px;
+  height: 20px;
+  padding: 10px;
+  /* width: 75px; */
+  text-align: center;
+}
+
+
+.header-tab:hover {
+  background: #3b5998;
+  border-radius: 2.5px;
 }

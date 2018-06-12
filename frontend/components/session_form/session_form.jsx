@@ -24,8 +24,6 @@ class SessionForm extends React.Component {
 
   render() {
     const errorMsg = this.props.errors === undefined ?  null : this.props.errors[0];
-    console.log(errorMsg);
-    console.log(this.props.errors);
     return (
       <div className="session-form">
         <form className="flex-container" onSubmit={this.handleSubmit}>

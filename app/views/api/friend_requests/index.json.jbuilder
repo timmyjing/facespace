@@ -24,6 +24,11 @@ json.requests do
   json.outgoingUserId do
     json.array! @outgoing.pluck(:requestee_id)
   end
+
+  json.incomingUserId do
+    json.array! @requests.pluck(:requester_id)
+  end
+
 end
 
 

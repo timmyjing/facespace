@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../button/button';
 
 
-const UserProfileHeader = ({user, createFriendRequest, updateFriendRequest, currentUser, outgoingUserId}) => (
+const UserProfileHeader = ({user, createFriendRequest, updateFriendRequest, currentUser, outgoingUserId, incomingUserId}) => (
   <div className="user-profile-header">
 
     <div className="user-cover-photo">
@@ -22,7 +22,7 @@ const UserProfileHeader = ({user, createFriendRequest, updateFriendRequest, curr
       { currentUser.id !== user.id ?
         (currentUser.friends_id.indexOf(user.id) === -1 ?
 
-        (outgoingUserId.indexOf(user.id) === -1 ?
+        (outgoingUserId.indexOf(user.id) === -1 && incomingUserId.indexOf(user.id) === -1 ?
           <Button onClick={() => createFriendRequest(user.id)} label={'\ufe62 Add Friend'}/> :
           <Button label={"Pending"} />) : <Button label={'\u2714 Friends'} />) :
         <Button label={"Edit Info"} />
@@ -30,7 +30,13 @@ const UserProfileHeader = ({user, createFriendRequest, updateFriendRequest, curr
       { currentUser.id !== user.id? <Button label={"Send Message"} /> : <Button label={"View Activity Log"} />}
     </div>
 
-    <div className="user-profile-tabs"></div>
+      <ul className="user-profile-tabs">
+        <li><a>Timeline</a></li>
+        <li><a>About</a></li>
+        <li><a>Friends</a></li>
+        <li><a>Photos</a></li>
+        <li><a>More</a></li>
+      </ul>
 
   </div>
 );

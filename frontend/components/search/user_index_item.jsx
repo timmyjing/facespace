@@ -6,15 +6,8 @@ import {Link} from 'react-router-dom';
 const UserIndexItem = ({user}) => (
   <Link to={`/users/${user.id}`}>
     <li className="user-search-item">
-      <div>
-        <UserImageThumb className="user-square" img={user.profile_img_url}/>
-      </div>
-      <div>
-        {user.first_name} {user.last_name}
-      </div>
-      <div>
-        ADD ME
-      </div>
+        <UserImageThumb className="user-thumb" img={user.profile_img_url}/>
+        <span className="user-search-name">{user.first_name} {user.last_name}</span>
     </li>
   </Link>
 );

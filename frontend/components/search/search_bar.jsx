@@ -7,7 +7,8 @@ class SearchBar extends React.Component {
     super(props);
 
     this.state = {
-      query: ""
+      query: "",
+      loading: false
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -16,11 +17,11 @@ class SearchBar extends React.Component {
   }
 
   handleInput(e) {
-    this.setState({query: e.target.value}, this.fetchUsers);
+    this.setState({query: e.target.value, loading: true});
   }
 
   fetchUsers() {
-    this.props.searchUsers(this.state);
+    this.props.searchUsers(this.state).then( () => this.setState({loading: false}));
   }
 
   renderUserIndex() {
@@ -34,11 +35,14 @@ class SearchBar extends React.Component {
 
 
   render() {
+    console.log("render");
+    console.log(this.state);
+    if (this.state.loading === true) this.fetchUsers();
     return (
       <div className="search-container">
           <input className="type-letters-here" type="text" value={this.state.query}
             onChange={this.handleInput} placeholder="Type letters into here until it does things..." />
-          {this.renderUserIndex()}
+          {this.state.loading === false || this.state.query !== "" ? this.renderUserIndex() : null }
       </div>
     );
   }

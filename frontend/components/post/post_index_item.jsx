@@ -10,7 +10,9 @@ const PostIndexItem = ({post, receiver, author, currentUser}) => {
   return (
     <li className="post-index-item">
     <span className="post-name-tag">
-      <UserImageThumb img={author.profile_img_url} className="post-user-thumb"/>
+      <Link to={`/users/${author.id}`}>
+          <UserImageThumb img={author.profile_img_url} className="post-user-thumb"/>
+      </Link>
       <div className="post-info">
         <div>
           <Link to={`/users/${author.id}`}>{author.first_name} {author.last_name}</Link>

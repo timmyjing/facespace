@@ -38,3 +38,29 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
+
+.post-form-header-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 32px;
+  border-bottom: 1px solid #dddfe2;
+}
+
+.post-form-header-tabs li {
+  padding: 3px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: Arial;
+  color: #555;
+  border-right: 1px solid #dddfe2;
+}
+
+.post-form-header-tabs li:last-child {
+  border-right: none;
+}
+
+.post-form-header-tabs li:hover {
+  cursor: pointer;
+}

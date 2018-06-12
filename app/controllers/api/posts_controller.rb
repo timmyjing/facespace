@@ -2,7 +2,8 @@ class Api::PostsController < ApplicationController
 
   def index
     # work on a better way to do this through associations
-    @posts = Post.all.includes(:author, :receiver)
+    # how would i get older posts? hmm
+    @posts = Post.all.includes(:author, :receiver).last(15)
     render 'api/posts/index'
   end
 
@@ -19,9 +20,22 @@ class Api::PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    if (@post.author_id == current_user.id) && @post.update(post_params)
+      render 'api/posts/show'
+    else
+      render json: ['Not authorized'], status: 404
+    end
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    if @post && @post.author_id === current_user.id || @post.receiver_id == current_user.id
+      @post.destroy
+      render 'api/posts/show'
+    else
+      render json: ['Not authorized.'], status: 404
+    end
   end
 
   private

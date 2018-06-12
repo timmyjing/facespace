@@ -18,9 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const userId = window.currentUser.id;
     const userInfo = window.currentUser;
 
-    const preloadedState = { entities: { users: { byId: { [userId]: userInfo }, allId: []},
-                                         friendRequest: { byId: {}, allId: []} },
-                             sessions: { id: userId } };
+    const preloadedState = { entities: { users: { byId: { [userId]: userInfo , friends_id: [], post_id: []}, allId: []},
+                                         friendRequest: { byId: {}, allId: [], outgoingId: [], outgoingUserId: [] } ,
+                                         posts: { byId: {}, allId: [] } },
+                             sessions: { id: userId },
+                             ui: {loading: false, searchId: []}
+                           };
     store = configureStore(preloadedState);
 
   } else {

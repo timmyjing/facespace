@@ -9,9 +9,8 @@ const defaultState = ({
 const uiReducer = (state = defaultState, action) => {
   switch(action.type) {
     case RECEIVE_SEARCHED_USERS:
-      console.log(action);
       let newState = merge({}, state);
-      newState.searchId = action.users.allId;
+      newState.searchId = action.payload.allId;
       return newState;
     case CLEAR_SEARCHED_USERS:
       return defaultState;

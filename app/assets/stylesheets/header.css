@@ -4,13 +4,15 @@
   color: white;
   background-color: #4267b2;
   border-bottom: 1px solid black;
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
+  z-index: 5;
   top: 0;
   left: 0;
 }
 
 .type-letters-here {
-  width: 100%;
+  width: 95%;
   background: white;
   height: 21.5px;
   margin: 10px;
@@ -33,8 +35,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  float: left;
+  /* float: left; */
   height: 42px;
+  position: relative;
+  left: 100px
 }
 
 .header-right {
@@ -43,7 +47,10 @@
   justify-content: center;
   align-items: center;
   height: 42px;
-  float: right;
+  /* float: right; */
+  position: relative;
+  left: 760px;
+  bottom: 42px;
 }
 
 #fb-logo {
@@ -59,8 +66,8 @@
 
 #fb-logo p {
   position: relative;
-  left: 7px;
-  top: -2px;
+  left: 9px;
+  top: -5px;
   font-size: 34px;
   font-weight: 900 !important;
   color: #4267b2;
@@ -73,13 +80,6 @@
   margin-left: 70px;
 }
 
-.header-tab {
-  font-size: 14px;
-  height: 20px;
-  padding: 6px 10px;
-  /* width: 75px; */
-  text-align: center;
-}
 
 .header-current-user-link {
   display: flex;
@@ -88,9 +88,4 @@
 
 .header-current-user-link div{
   padding: 0px 12px 2.5px 6px;
-}
-
-.header-tab:hover {
-  background: #3b5998;
-  border-radius: 2.5px;
 }

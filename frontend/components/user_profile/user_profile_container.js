@@ -5,12 +5,19 @@ import {requestUser} from '../../actions/user_actions';
 import {createFriendRequest, acceptFriendRequest, declineFriendRequest} from '../../actions/friend_request_actions';
 
 
-const mapStateToProps = (state, ownProps) => ({
-  user: state.entities.users.byId[ownProps.match.params.userId],
-  users: state.entities.users.byId,
-  currentUser: state.entities.users.byId[state.sessions.id],
-  friendRequests: state.entities.friendRequests
-});
+const mapStateToProps = (state, ownProps) => {
+  const currentUser = state.entities.users.byId[state.sessions.id];
+  const user = state.entities.users.byId[ownProps.match.params.userId];
+  const users = state.entities.users.byId;
+  const friendRequests = state.entities.friendRequests;
+
+  return {
+    currentUser,
+    user,
+    users,
+    friendRequests
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   requestUser: id => dispatch(requestUser(id)),

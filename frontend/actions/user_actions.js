@@ -21,14 +21,14 @@ export const receiveUser = payload => ({
   payload
 });
 
-export const receiveSearchedUsers = users => ({
+export const receiveSearchedUsers = payload => ({
   type: RECEIVE_SEARCHED_USERS,
-  users
+  payload
 });
 
-export const clearSearchedUsers = () => ({
-  type: CLEAR_SEARCHED_USERS
-});
+// export const clearSearchedUsers = () => ({
+//   type: CLEAR_SEARCHED_USERS
+// });
 
 export const requestUsers = () => dispatch => (
   UserApiUtil.requestUsers()
@@ -45,11 +45,7 @@ export const requestUser = id => dispatch => (
 
 export const searchUsers = query => dispatch => (
   UserApiUtil.searchUsers(query)
-    .then(payload => {
-      if (payload.allId.length === 0) dispatch(clearSearchedUsers())
-      else {
-        dispatch(receiveSearchedUsers(payload));
-      };
-    },
+    .then(payload =>
+        dispatch(receiveSearchedUsers(payload)),
     errors => dispatch(clearSearchedUsers()))
 );
