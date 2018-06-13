@@ -51,7 +51,6 @@ class PostForm extends React.Component {
           <textarea className="post-input" type="text" placeholder={placeholder} onChange={this.handleInput} value={this.state.content} />
         </div>
           <button onClick={this.handleSubmit} className="post-form-btn">Post</button>
-          <button onClick={this.handleSweet} className="post-form-btn-sweet">Sweet!</button>
       </form>);
 
   }
