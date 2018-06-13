@@ -12,6 +12,8 @@ class UserProfile extends React.Component {
     this.state = {
       loading: true
     };
+
+    this.requestUser = this.requestUser.bind(this);
   }
 
   componentDidMount() {
@@ -20,20 +22,25 @@ class UserProfile extends React.Component {
     () => this.props.history.push('/'));
   }
 
+  requestUser() {
+    this.props.requestUser(this.props.match.params.userId).then( () => this.setState({loading: false}) );
+  }
+
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps);
-    console.log(this.props);
     if (prevProps.match.params.userId !== this.props.match.params.userId) {
-      this.props.requestUser(this.props.match.params.userId).then(() => this.setState({loading: false}));
+      this.setState({loading: true}, this.requestUser);
+      // since state wasnt set back to loading, the render logic was proceeded with before some user info was loaded
+      // this.requestUser(this.props.match.params.userId).then(() => this.setState({loading: false}));
     }
   }
 
   render() {
+    console.log(this.state);
     const {user, updateFriendRequest, createFriendRequest , users, currentUser, friendRequests} = this.props;
     if (this.state.loading) return null;
-    if (!user || !user.friends_id) return null  ;
-    const friends = user.friends_id.map( id => users[id]);
+    if (!user || !user.friends_id) return null;
+    const friends = user.friends_id.slice(0,9).map( id => users[id]);
     user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
     return (
       <div className="user-profile-container">

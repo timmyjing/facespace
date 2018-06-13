@@ -1,9 +1,10 @@
 import {RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST, EDIT_POST} from '../actions/post_actions';
 import {RECEIVE_USER} from '../actions/user_actions';
+import {RECEIVE_COMMENT, REMOVE_COMMENT} from '../actions/comment_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
-  byId: {},
+  byId: { comment_id: [] },
   allId: []
 };
 
@@ -35,6 +36,17 @@ const postsReducer = (state = defaultState, action) => {
       delete newState.byId[action.post.id];
       postIndex = newState.allId.indexOf(action.post.id);
       newState.allId = newState.allId.slice(0, postIndex).concat(newState.allId.slice(postIndex +1));
+      return newState;
+    case RECEIVE_COMMENT:
+      newState.byId[action.comment.post_id].comment_id.push(action.comment.id)
+      return newState;
+    case REMOVE_COMMENT:
+      let commentId = newState.byId[action.comment.post_id].comment_id;
+      console.log(commentId);
+      let commentIndex = newState.byId[action.comment.post_id].comment_id.indexOf(action.comment.id);
+      console.log(commentIndex);
+      newState.byId[action.comment.post_id].comment_id = commentId.slice(0, commentIndex).concat(commentId.slice(commentIndex + 1));
+      console.log(newState);
       return newState;
     default:
       return state;

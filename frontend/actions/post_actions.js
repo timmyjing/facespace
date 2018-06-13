@@ -14,10 +14,11 @@ export const receivePost = post => ({
 });
 
 
-export const receivePosts = ({users, posts}) => ({
+export const receivePosts = ({users, posts, comments}) => ({
   type: RECEIVE_POSTS,
   posts,
-  users
+  users,
+  comments
 });
 
 export const removePost = post => ({

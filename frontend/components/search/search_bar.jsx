@@ -35,8 +35,6 @@ class SearchBar extends React.Component {
 
 
   render() {
-    console.log("render");
-    console.log(this.state);
     if (this.state.loading === true) this.fetchUsers();
     return (
       <div className="search-container">

@@ -1,5 +1,6 @@
 class Api::FriendRequestsController < ApplicationController
-
+  before_action :require_login
+  
   def index
     @requests = current_user.friend_requests
     incoming_users = @requests.map {|request| request.requester}

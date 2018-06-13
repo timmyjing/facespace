@@ -10,13 +10,15 @@ const mapStateToProps = (state, ownProps) => {
   const posts = state.entities.posts.allId.map( id => state.entities.posts.byId[id]);
   const currentUser = users[state.sessions.id];
   const user = ownProps.match.params.userId === undefined ?  (users[state.sessions.id]) : (users[ownProps.match.params.userId]);
+  const comments = state.entities.comments.byId;
   const className = "post-index";
   return {
     posts,
     users,
     user,
     currentUser,
-    className
+    className,
+    comments
   };
 };
 

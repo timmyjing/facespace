@@ -1,5 +1,6 @@
 import {RECEIVE_FRIEND_REQUESTS, ACCEPT_FRIEND_REQUEST, DECLINE_FRIEND_REQUEST, SEND_FRIEND_REQUEST} from '../actions/friend_request_actions';
 import merge from 'lodash/merge';
+
 const defaultState = ({
   byId: {},
   outgoingId: [],

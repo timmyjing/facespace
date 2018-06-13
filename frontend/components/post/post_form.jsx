@@ -11,12 +11,16 @@ class PostForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleSweet = this.handleSweet.bind(this);
   };
 
   handleInput(e) {
     this.setState({content: e.target.value});
   }
 
+  handleSweet() {
+    this.setState({content: `${this.state.content} sweet`});
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -37,17 +41,17 @@ class PostForm extends React.Component {
     const placeholder = currentUser.id === user.id ? "What's on your mind?" : `Write something to ${user.first_name}...`;
 
     return (
-      <form className={`post-form ${this.props.className}`} onSubmit={this.handleSubmit}>
+      <form className={`post-form ${this.props.className}`}>
         <div className="post-form-top-border">
           <PostFormHeader />
         </div>
         <div className="post-form-input">
           <div className="form-modal-triangle"></div>
           <UserImageThumb img={currentUser.profile_img_url} className="post-user-thumb"/>
-          <input type="text" placeholder={placeholder} onChange={this.handleInput} value={this.state.content} />
+          <textarea className="post-input" type="text" placeholder={placeholder} onChange={this.handleInput} value={this.state.content} />
         </div>
-        <button type="submit" className="post-form-btn">Post</button>
-        <button type="submit" className="post-form-btn-sweet">Sweet! 🎊</button>
+          <button onClick={this.handleSubmit} className="post-form-btn">Post</button>
+          <button onClick={this.handleSweet} className="post-form-btn-sweet">Sweet!</button>
       </form>);
 
   }

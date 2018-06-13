@@ -36,6 +36,11 @@ class User < ApplicationRecord
   class_name: :Post,
   dependent: :destroy
 
+  has_many :comments,
+  foreign_key: :author_id,
+  class_name: :Comment,
+  dependent: :destroy
+
 
   def network
     self.friends.pluck(:id) << self.id

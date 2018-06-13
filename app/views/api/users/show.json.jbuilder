@@ -24,6 +24,9 @@ json.posts do
     @user.received_posts.each do |post|
       json.set! post.id do
         json.extract! post, :id, :content, :author_id, :receiver_id, :created_at
+        json.comment_id do
+          json.array! post.comments.pluck(:id)
+        end
       end
     end
   end

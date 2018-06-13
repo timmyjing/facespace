@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const preloadedState = { entities: { users: { byId: { [userId]: userInfo , friends_id: [], post_id: []}, allId: []},
                                          friendRequest: { byId: {}, allId: [], outgoingId: [], outgoingUserId: [] } ,
-                                         posts: { byId: {}, allId: [] } },
+                                         posts: { byId: { comment_id: [] }, allId: [] },
+                                         comments: {byId: {}, allId: [] }
+                                       },
                              sessions: { id: userId },
                              ui: {loading: false, searchId: []}
                            };

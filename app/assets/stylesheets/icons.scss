@@ -32,6 +32,22 @@
 }
 
 
+.post-i-delete {
+  background: asset-url('smallwaste-bin.png');
+  cursor: pointer;
+  position: relative;
+  left: 390px;
+  top: 5px;
+}
+
+
+.post-i-delete-comment {
+  background: asset-url('smallwaste-bin.png');
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+}
+
 .post-i-make {
   background: asset-url('make.png');
 }

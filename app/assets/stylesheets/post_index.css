@@ -9,10 +9,10 @@
 
 .post-index-item {
   border: 1px solid #ddd;
-  padding: 15px;
+  padding: 5px;
   background: white;
   margin-bottom: 15px;
-  width: 470px;
+  width: 491px;
   border-radius: 5px;
   font-family: Arial;
 }
@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 .post-name-tag a {
@@ -37,23 +37,6 @@
   font-size: 10px;
 }
 
-.post-comment-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 5px;
-}
-
-.post-comment {
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  width: 360px;
-  padding: 5px;
-  font-size: 12px;
-  font-family: Arial;
-  line-height: 20px;
-  margin-left: -25px;
-}
 
 
 .post-date {
@@ -67,6 +50,7 @@
   line-height: 20px;
   font-weight: 400;
   overflow-wrap: break-word;
+  padding: 5px 10px;
 }
 
 
@@ -74,6 +58,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
 }
 
 
@@ -84,6 +69,6 @@
 
 .post-action {
   position: relative;
-  right: -338px;
-  top: -5px;
+  right: -350px;
+  top: 17px;
 }
