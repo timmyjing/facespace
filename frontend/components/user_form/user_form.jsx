@@ -35,7 +35,6 @@ class UserForm extends React.Component {
       <div className="create-user-form">
         <h1 className="important-text">Sign Up</h1>
         <h2 className="light-text">It's free and always will be.</h2>
-        <h2 className="light-text">Just type letters into here until it does something.</h2>
         <form>
           <div className="flex-container">
             <Input errorMsg={errors.first} className="input-short" type="text" placeholder="First name" value={this.state.first_name} onChange={this.handleInput('first_name')}/>

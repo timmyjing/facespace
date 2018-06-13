@@ -92,7 +92,7 @@
 }
 
 .user-profile-info p {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   font-family: Arial;
 }
@@ -138,6 +138,7 @@
   height: 20px;
   padding: 5px 20px;
   display: block;
+  font-family: sans-serif;
 }
 
 .friends-bold {
@@ -186,4 +187,12 @@
   height: 101px;
   width: 101px;
   margin: 1px;
+}
+
+.find-friends {
+  font-size: 12px;
+  text-align: center;
+  float: right;
+  cursor: pointer;
+  color: #365899;
 }
