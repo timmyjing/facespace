@@ -20,3 +20,19 @@ export const requestPosts = () => (
     method: 'GET'
   })
 );
+
+export const updatePost = post => (
+  $.ajax({
+    url: `api/posts/${post.id}`,
+    method: 'PATCH',
+    data: { post }
+  })
+);
+
+
+export const deletePost = id => (
+  $.ajax({
+    url: `api/posts/${id}`,
+    method: 'DELETE'
+  })
+);

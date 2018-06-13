@@ -7,11 +7,11 @@ const SideNavBar = ({currentUser}) => (
         <UserImageThumb className="tiny-nav-image" img={currentUser.profile_img_url} />
         <span>{currentUser.first_name} {currentUser.last_name}</span>
     </li>
-    <li>News Feed</li>
-    <li>Messenger</li>
-    <li>Watch</li>
-    <li>Marketplace</li>
-    <li>Events</li>
+    <li><i className="nav-i-news" />News Feed</li>
+    <li><i className="nav-i-messages" />Messenger</li>
+    <li><i className="nav-i-watch" />Watch</li>
+    <li><i className="nav-i-marketplace" />Marketplace</li>
+    <li><i className="nav-i-events" />Events</li>
   </ul>
 );
 

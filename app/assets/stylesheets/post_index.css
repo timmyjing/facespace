@@ -80,3 +80,10 @@
 .post-info div {
   padding: 2px;
 }
+
+
+.post-action {
+  position: relative;
+  right: -338px;
+  top: -5px;
+}

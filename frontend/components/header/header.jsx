@@ -11,17 +11,18 @@ const Header = ({user, logout}) => (
     </div>
     <div className="header-right">
 
-        <Link className="header-current-user-link header-tab" to={`/users/${user.id}`}>
+        <Link className="header-current-user-link tab-hover" to={`/users/${user.id}`}>
             <div><UserImageThumb className="user-thumb" img={user.profile_img_url} /></div>
             <div>{user.first_name}</div>
         </Link>
 
-      <div className="header-tab"><Link to='/'>Home</Link></div>
-      <div className="dropdown header-tab">Friends<FriendRequestsContainer  /></div>
-      <div className="header-tab">Messages</div>
-      <div className="header-tab">Notifications</div>
-      <div className="header-tab">
-        <button onClick={() => logout()}>Log Out</button>
+      <div className="header-home-tab tab-hover "><Link to='/'>Home</Link></div>
+        <div className="dropdown header-tab tab-hover"><i className="icon-friends" /><FriendRequestsContainer  /></div>
+        <div className="header-tab tab-hover"><i className="icon-messages" /></div>
+        <div className="header-tab tab-hover"><i className="icon-notifications" /></div>
+        <div className="header-tab tab-hover"><i className="icon-info" /></div>
+      <div className="header-tab tab-hover">
+        <button onClick={() => logout()}><i className='icon-logout' /></button>
       </div>
     </div>
   </div>

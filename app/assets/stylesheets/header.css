@@ -84,8 +84,9 @@
 .header-current-user-link {
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .header-current-user-link div{
-  padding: 0px 12px 2.5px 6px;
+  padding: 3px 12px 2.5px 6px;
 }

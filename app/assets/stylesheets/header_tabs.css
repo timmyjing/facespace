@@ -17,20 +17,68 @@
   z-index: 5;
   display: inline-flex;
   justify-content: space-between;
+  border-bottom: 1px solid #ccc;
   /* top: 19px;
   right: -10px; */
 }
 
 .header-tab {
   font-size: 14px;
-  height: 20px;
-  padding: 10px;
+  height: 42px;
+  width: 42px;
   /* width: 75px; */
   text-align: center;
 }
 
+.header-home-tab {
+  width: 50px;
+  font-size: 14px;
+  border-left: 1px solid #3b5998;
+  border-right: 1px solid #3b5998;
+  text-align: center;
+  padding: 5px 0px;
+}
 
-.header-tab:hover {
+
+
+.tab-hover:hover {
   background: #3b5998;
   border-radius: 2.5px;
+}
+
+.friend-requests-header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  border-bottom: 1px solid #ccc;
+  height: 23px;
+  font-family: sans-serif;
+  width: 380px;
+}
+
+.friend-requests-label {
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.friend-requests-links {
+  color: #3366BB;
+  font-size: 13px;
+  padding: 5px;
+}
+
+.friend-requests-links span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.friend-requests-none {
+  font-family: sans-serif;
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 400;
+  background: #edf0f5;
+  display: inline-block;
 }

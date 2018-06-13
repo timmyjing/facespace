@@ -22,8 +22,10 @@ class UserProfile extends React.Component {
 
 
   componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps);
+    console.log(this.props);
     if (prevProps.match.params.userId !== this.props.match.params.userId) {
-      this.props.requestUser(this.props.match.params.userId);
+      this.props.requestUser(this.props.match.params.userId).then(() => this.setState({loading: false}));
     }
   }
 

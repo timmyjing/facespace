@@ -3,7 +3,9 @@ class Api::PostsController < ApplicationController
   def index
     # work on a better way to do this through associations
     # how would i get older posts? hmm
-    @posts = Post.all.includes(:author, :receiver).last(15)
+    # @posts = Post.all.includes(:author, :receiver).last(15)
+    network = current_user.network
+    @posts =  Post.where({author_id: network}).or(Post.where({receiver_id: network})).includes(:author, :receiver).last(25)
     render 'api/posts/index'
   end
 

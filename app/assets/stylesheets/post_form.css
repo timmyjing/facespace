@@ -55,6 +55,8 @@
   font-family: Arial;
   color: #555;
   border-right: 1px solid #dddfe2;
+  text-align: right;
+  display: inline-flex;
 }
 
 .post-form-header-tabs li:last-child {

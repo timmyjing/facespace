@@ -34,6 +34,14 @@
 }
 
 
+.blue-btn {
+  background: #3c66af;
+}
+
+.red-btn {
+  background: #f44336;
+}
+
 .post-form-btn-sweet {
   padding: 3px 14px;
   margin-top: -4px;

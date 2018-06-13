@@ -1,9 +1,8 @@
 .search-index {
   border-style: border-box;
-  width: 57%;
+  width: 60%;
   margin-top: -10px;
   margin-left: -5px;
-  padding: 0px 10px;
   border-left: 0.2px solid #ddd;
   border-right: 0.2px solid #ddd;
   border-bottom: 0.2px solid #ddd;
@@ -17,7 +16,7 @@
 
 .user-search-item {
   position: relative;
-  padding: 10px 2px;
+  padding: 10px;
   color: black;
   display: flex;
   flex-direction: row;

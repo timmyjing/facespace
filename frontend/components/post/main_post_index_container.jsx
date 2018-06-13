@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PostIndex from './post_index';
-import {requestPosts} from '../../actions/post_actions';
+import {requestPosts, deletePost, updatePost} from '../../actions/post_actions';
 
 class MainPostIndexContainer extends React.Component {
   constructor(props) {
@@ -18,8 +18,8 @@ class MainPostIndexContainer extends React.Component {
 
   render() {
     if (this.state.loading === true) return null;
-    const {users, posts, currentUser, user} = this.props;
-    return (<PostIndex user={user} posts={posts} currentUser={currentUser} users={users} className="main-post-index"/>);
+    const {users, posts, currentUser, user, updatePost, deletePost} = this.props;
+    return (<PostIndex user={user} updatePost={updatePost} deletePost={deletePost} posts={posts} currentUser={currentUser} users={users} className="main-post-index"/>);
   }
 
 }
@@ -29,7 +29,7 @@ class MainPostIndexContainer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const users = state.entities.users.byId;
-  const posts = state.entities.posts.byId;
+  const posts = state.entities.posts.allId.map( id => state.entities.posts.byId[id]);
   const currentUser = users[state.sessions.id];
   // Polymorphism lol kinda ugly
   const user = {post_id: state.entities.posts.allId};
@@ -43,7 +43,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestPosts: () => dispatch(requestPosts())
+  requestPosts: () => dispatch(requestPosts()),
+  updatePost: post => dispatch(updatePost(post)),
+  deletePost: id => () => dispatch(deletePost(id))
 });
 
 

@@ -1,0 +1,85 @@
+[class*="icon-"] {
+  vertical-align: center;
+  overflow: hidden;
+  height: 24px;
+  width: 24px;
+  position: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 9px;
+  margin-left: -12px;
+}
+
+
+[class*="nav-i-"] {
+  vertical-align: center;
+  overflow: hidden;
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 6px;
+}
+
+[class*="post-i-"] {
+  vertical-align: center;
+  overflow: hidden;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 2px;
+}
+
+
+.post-i-make {
+  background: asset-url('make.png');
+}
+
+.post-i-video {
+  background: asset-url('video-player.png');
+}
+
+.post-i-photo {
+  background: asset-url('images.png');
+}
+
+.icon-friends {
+  background: asset-url('add-friend.png');
+}
+
+.icon-messages {
+  background: asset-url('messenger.png');
+}
+
+.icon-info {
+  background: asset-url('information.png');
+}
+
+.icon-notifications {
+  background: asset-url('world.png');
+}
+
+.icon-logout {
+  background: asset-url('logout.png');
+}
+
+.nav-i-events {
+  background: asset-url('calendar.png');
+}
+
+.nav-i-messages {
+  background: asset-url('messenger.png');
+}
+
+.nav-i-watch {
+  background: asset-url('tv.png');
+}
+
+.nav-i-marketplace {
+  background: asset-url('big-shopping-store.png');
+}
+
+.nav-i-news {
+  background: asset-url('folded-newspaper.png');
+}

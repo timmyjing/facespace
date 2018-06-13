@@ -36,6 +36,11 @@ class User < ApplicationRecord
   class_name: :Post,
   dependent: :destroy
 
+
+  def network
+    self.friends.pluck(:id) << self.id
+  end
+
   def is_friends?(id)
     self.friends.exists?(id)
   end
