@@ -1,5 +1,6 @@
 import {RECEIVE_COMMENT, REMOVE_COMMENT} from '../actions/comment_actions';
 import {RECEIVE_POSTS} from '../actions/post_actions';
+import {RECEIVE_USER} from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {byId: {}, allId: []};
@@ -16,7 +17,11 @@ const commentsReducer = (state = defaultState, action) => {
       delete newState.byId[action.comment.id];
       return newState;
     case RECEIVE_POSTS:
-      newState.byId = action.comments.byId;
+      newState.byId = action.comments.byId || {};
+      return newState;
+    case RECEIVE_USER:
+      newState.byId = action.payload.comments.byId || {};
+      newState.allId = action.payload.comments.allId;
       return newState;
     default:
       return state;
