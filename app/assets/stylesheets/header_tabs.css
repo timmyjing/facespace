@@ -82,3 +82,15 @@
   background: #edf0f5;
   display: inline-block;
 }
+
+.requests-counter {
+  position: absolute;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  height: 15px;
+  font-size: 13px;
+  width: 15px;
+  top: 5px;
+  left: 3.5px;
+}

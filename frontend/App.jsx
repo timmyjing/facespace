@@ -16,9 +16,9 @@ const App = () => (
     <AuthRoute path="/" component={SessionNavBar} />
     <AuthRoute path="/" component={MainContainer} />
     <ProtectedRoute path="/" component={HeaderContainer} />
-    <ProtectedRoute exact path="/" component={HomeMainContainer} />
     <Switch>
       <ProtectedRoute path="/users/:userId" component={UserProfileContainer} />
+      <ProtectedRoute exact path="/" component={HomeMainContainer} />
     </Switch>
   </div>
 );

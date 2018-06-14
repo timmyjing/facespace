@@ -4,6 +4,7 @@ import UserProfileDetail from './user_profile_detail'
 import UserProfileFriendsContainer from './user_profile_friends_container';
 import CreatePostFormContainer from '../post/create_post_form_container';
 import PostIndexContainer from '../post/post_index_container';
+import {Redirect} from 'react-router-dom';
 
 
 class UserProfile extends React.Component {
@@ -35,8 +36,12 @@ class UserProfile extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    console.log(this.props);
+    if (this.props.history.action === 'REPLACE') this.props.history.push(this.props.match.url);
+  }
+
   render() {
-    console.log(this.state);
     const {user, updateFriendRequest, createFriendRequest , users, currentUser, friendRequests} = this.props;
     if (this.state.loading) return null;
     if (!user || !user.friends_id) return null;

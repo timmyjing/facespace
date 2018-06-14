@@ -6,7 +6,7 @@ const UserImageSquare = ({img}) => {
 
   imgUrl = (img !== null) ? img : '/assets/default-user.jpg';
 
-  return (<img className="user-square" src={imgUrl} />);
+  return (<div className='div-image user-square' style={{backgroundImage: `url(${imgUrl})`}}></div>);
 };
 
 export default UserImageSquare;

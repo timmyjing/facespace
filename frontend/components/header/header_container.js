@@ -3,7 +3,8 @@ import Header from './header';
 import {logout} from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
-  user: state.entities.users.byId[state.sessions.id]
+  user: state.entities.users.byId[state.sessions.id],
+  requests: state.entities.friendRequests.incomingId.length
 });
 
 const mapDispatchToProps = dispatch => ({

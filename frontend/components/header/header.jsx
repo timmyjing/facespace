@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import UserImageThumb from '../image/user_image_thumb';
 import SearchContainer from '../search/search_container';
 import FriendRequestsContainer from '../friend_request/friend_requests_container';
-const Header = ({user, logout}) => (
+const Header = ({user, requests, logout}) => (
   <div className="home-header">
     <div className="header-left">
       <Link to="/" ><div id="fb-logo"><p>f</p></div></Link>
@@ -17,7 +17,11 @@ const Header = ({user, logout}) => (
         </Link>
 
       <div className="header-home-tab tab-hover "><Link to='/'>Home</Link></div>
-        <div className="dropdown header-tab tab-hover"><i className="icon-friends" /><FriendRequestsContainer  /></div>
+        <div className="dropdown header-tab tab-hover">
+          <i className="icon-friends" />
+          {requests > 0 ?  <div className="requests-counter">{requests}</div>: null}
+          <FriendRequestsContainer  />
+        </div>
         <div className="header-tab tab-hover"><i className="icon-messages" /></div>
         <div className="header-tab tab-hover"><i className="icon-notifications" /></div>
         <div className="header-tab tab-hover"><i className="icon-info" /></div>

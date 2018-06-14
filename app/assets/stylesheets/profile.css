@@ -89,12 +89,12 @@
   width: 306px;
   top: 370px;
   padding: 10px;
+  font-family: sans-serif;
 }
 
 .user-profile-info p {
   font-size: 13px;
   font-weight: 500;
-  font-family: Arial;
 }
 .friend-list-item {
   height: 101px;

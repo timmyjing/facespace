@@ -14,7 +14,9 @@ class SearchBar extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.fetchUsers = this.fetchUsers.bind(this);
     this.renderUserIndex = this.renderUserIndex.bind(this);
+    this.hideSearch = this.hideSearch.bind(this);
   }
+
 
   handleInput(e) {
     this.setState({query: e.target.value, loading: true});
@@ -22,6 +24,10 @@ class SearchBar extends React.Component {
 
   fetchUsers() {
     this.props.searchUsers(this.state).then( () => this.setState({loading: false}));
+  }
+
+  hideSearch() {
+    console.log('what up with it mane');
   }
 
   renderUserIndex() {
@@ -38,7 +44,7 @@ class SearchBar extends React.Component {
     if (this.state.loading === true) this.fetchUsers();
     return (
       <div className="search-container">
-          <input className="type-letters-here" type="text" value={this.state.query}
+          <input onBlur={this.hideSearch} className="type-letters-here" type="text" value={this.state.query}
             onChange={this.handleInput} placeholder="Type letters into here until it does things..." />
           {this.state.loading === false || this.state.query !== "" ? this.renderUserIndex() : null }
       </div>

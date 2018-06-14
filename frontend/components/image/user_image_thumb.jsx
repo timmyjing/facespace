@@ -6,7 +6,7 @@ const UserImageThumb = ({img, className}) => {
 
   imgUrl = (img !== null) ? img : '/assets/default-user.jpg';
 
-  return (<img className={className} src={imgUrl} />);
+  return (<div className={`div-image ${className}`} style={{backgroundImage: `url(${imgUrl})`}}></div>);
 };
 
 export default UserImageThumb;
