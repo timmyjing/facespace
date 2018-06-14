@@ -41,6 +41,14 @@ class User < ApplicationRecord
   class_name: :Comment,
   dependent: :destroy
 
+  has_many :likes,
+  class_name: :Like,
+  dependent: :destroy
+
+  def likes?(id)
+    self.likes.exists?(id)
+  end
+
 
   def network
     self.friends.pluck(:id) << self.id

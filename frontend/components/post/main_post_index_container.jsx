@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PostIndex from './post_index';
 import {requestPosts, deletePost, updatePost} from '../../actions/post_actions';
+import {createLike, deleteLike} from '../../actions/like_actions';
+
 
 class MainPostIndexContainer extends React.Component {
   constructor(props) {
@@ -18,12 +20,13 @@ class MainPostIndexContainer extends React.Component {
 
   render() {
     if (this.state.loading === true) return null;
-    const {users, posts, currentUser, user, updatePost, deletePost, comments} = this.props;
-    return (<PostIndex comments={comments} user={user} updatePost={updatePost} deletePost={deletePost} posts={posts} currentUser={currentUser} users={users} className="main-post-index"/>);
+    const {users, posts, currentUser, user, updatePost, deletePost, comments, likePost, unlikePost} = this.props;
+    return (<PostIndex comments={comments} user={user} updatePost={updatePost} deletePost={deletePost}
+                posts={posts} currentUser={currentUser} users={users} className="main-post-index"
+                likePost={likePost} unlikePost={unlikePost} />);
   }
 
 }
-
 
 
 
@@ -35,20 +38,25 @@ const mapStateToProps = (state, ownProps) => {
   // since the main post index is not associated with the container, will used post allIds for order
   const user = {post_id: state.entities.posts.allId};
   const comments = state.entities.comments.byId;
+  const likes = state.entities.likes.byId;
+
 
   return {
     posts,
     users,
     user,
     currentUser,
-    comments
+    comments,
+    likes
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   requestPosts: () => dispatch(requestPosts()),
   updatePost: post => dispatch(updatePost(post)),
-  deletePost: id => () => dispatch(deletePost(id))
+  deletePost: id => () => dispatch(deletePost(id)),
+  likePost: id => dispatch(createLike({liked_id: id, liked_type: 'Post'})),
+  unlikePost: id => dispatch(deleteLike(id))
 });
 
 

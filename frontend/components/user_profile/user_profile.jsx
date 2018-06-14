@@ -37,7 +37,6 @@ class UserProfile extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log(this.props);
     if (this.props.history.action === 'REPLACE') this.props.history.push(this.props.match.url);
   }
 
@@ -45,6 +44,7 @@ class UserProfile extends React.Component {
     const {user, updateFriendRequest, createFriendRequest , users, currentUser, friendRequests} = this.props;
     if (this.state.loading) return null;
     if (!user || !user.friends_id) return null;
+    const numFriends = user.friends_id.length;
     const friends = user.friends_id.slice(0,9).map( id => users[id]);
     user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
     return (
@@ -52,7 +52,7 @@ class UserProfile extends React.Component {
         <UserProfileHeader currentUser={currentUser} user={user} updateFriendRequest={updateFriendRequest}
           outgoingUserId={friendRequests.outgoingUserId} createFriendRequest={createFriendRequest}
           incomingUserId={friendRequests.incomingUserId} />
-        <UserProfileFriendsContainer friends={friends} />
+        <UserProfileFriendsContainer friends={friends} numFriends={numFriends} />
 
         <UserProfileDetail user={user} />
         { currentUser.friends_id.indexOf(user.id) !== -1 || currentUser.id === user.id ? (

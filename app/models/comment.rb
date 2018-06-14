@@ -13,4 +13,10 @@ class Comment < ApplicationRecord
   class_name: :Comment,
   dependent: :destroy
 
+  has_many :likes, as: :liked
+
+  has_many :likers,
+  through: :likes,
+  source: :user
+
 end

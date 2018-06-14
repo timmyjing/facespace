@@ -27,6 +27,7 @@
 
 .user-search-item:hover {
   background: #afbdd4;
+  display: flex;
 }
 
 .user-search-name {

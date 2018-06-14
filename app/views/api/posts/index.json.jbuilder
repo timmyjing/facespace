@@ -7,6 +7,10 @@ json.posts do
         json.comment_id do
           json.array! post.comments.pluck(:id).sort #comments sorted by id from oldest to newest
         end
+        json.like_id do
+          json.array! post.likes.pluck(:id)
+        end
+        json.liked post.likes.find_by(user_id: current_user.id)
       end
     end
   end
@@ -35,6 +39,19 @@ json.comments do
 
 end
 
+json.likes do
+  json.byId do
+    @posts.each do |post|
+      post.likes.each do |like|
+        json.set! like.id do
+          json.extract! like, :id, :user_id, :liked_id, :liked_type
+        end
+      end
+    end
+  end
+end
+
+
 json.users do
 
   json.byId do
@@ -53,5 +70,5 @@ json.users do
       end
     end
   end
-  
+
 end

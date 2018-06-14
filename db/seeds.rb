@@ -28,3 +28,5 @@ User.create(first_name: 'Ayy', last_name: 'Lmao', email: 'ayy', birth_date: '199
   cover_img_url: 'https://starecat.com/content/wp-content/uploads/alien-ayy-lmao-who-wants-to-be-a-millionaire.jpg', bio: 'ayy lmao')
 User.create(first_name: 'Ronald', last_name: 'McDonald', email: 'mcd', birth_date: '1990/01/01', gender: 'male', password: 'password', profile_img_url: 'https://vignette.wikia.nocookie.net/ronaldmcdonald/images/2/29/Ronald_McDonald_waving.jpg/revision/latest?cb=20150520002023',
   bio: 'The Official fuel for AppAcademy students', cover_img_url: 'https://media1.s-nbcnews.com/j/newscms/2016_48/1178653/chicken-mcnuggets-tease-today-161201_d180d8f523a3f90d22e433f3253e53d9.today-inline-large.jpg')
+User.create(first_name: 'Penny', last_name: 'Wise', email: 'clown', birth_date: '1990/01/01', gender: 'male', password: 'password', profile_img_url: 'https://images-na.ssl-images-amazon.com/images/I/41bpLECjbTL._SL1001_.jpg',
+  bio: 'I eat children', cover_img_url: 'http://digitalspyuk.cdnds.net/17/38/980x490/landscape-1505731747-pennywise-teeth-it-movie.jpg')

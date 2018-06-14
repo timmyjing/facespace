@@ -71,3 +71,44 @@
   padding: 10px 2px 0px 2px;
   width: 100%;
 }
+
+.post-likes-count {
+  font-size: 14px;
+  color: #3b5998;
+  cursor: pointer;
+  padding: 5px;
+  font-family: sans-serif;
+}
+
+.post-likes {
+  border-top: 1px solid #dddfe2;
+  border-bottom: 1px solid #dddfe2;
+  margin-top: 5px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: sans-serif;
+  color: #666;
+}
+
+.post-actions li {
+  cursor: pointer;
+  width: 33%;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 2.5px;
+}
+
+.post-actions li:hover {
+  background: #edf0f5;
+}
+
+
+.post-liked {
+  color: #365899;
+}

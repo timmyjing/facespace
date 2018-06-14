@@ -1,10 +1,11 @@
 import {RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST, EDIT_POST} from '../actions/post_actions';
 import {RECEIVE_USER} from '../actions/user_actions';
 import {RECEIVE_COMMENT, REMOVE_COMMENT} from '../actions/comment_actions';
+import {RECEIVE_LIKE, REMOVE_LIKE} from '../actions/like_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
-  byId: { comment_id: [] },
+  byId: { comment_id: [] , like_id: []},
   allId: []
 };
 
@@ -20,6 +21,7 @@ const postsReducer = (state = defaultState, action) => {
     case RECEIVE_POSTS:
     // returning only posts fetched for news feed instead of merging to save memory
       // return merge(newState, action.posts);
+      console.log(action);
       newState.byId = action.posts.byId || {};
       newState.allId = action.posts.allId;
       return newState;
@@ -47,6 +49,16 @@ const postsReducer = (state = defaultState, action) => {
       console.log(commentIndex);
       newState.byId[action.comment.post_id].comment_id = commentId.slice(0, commentIndex).concat(commentId.slice(commentIndex + 1));
       console.log(newState);
+      return newState;
+    case RECEIVE_LIKE:
+      newState.byId[action.like.liked_id].like_id.push(action.like.id);
+      newState.byId[action.like.liked_id].liked = action.like;
+      return newState;
+    case REMOVE_LIKE:
+      let likeIndex = newState.byId[action.like.liked_id].like_id.indexOf(action.like.id);
+      let likedId = newState.byId[action.like.liked_id].like_id;
+      newState.byId[action.like.liked_id].like_id = likedId.slice(0, likeIndex).concat(likedId.slice(likeIndex + 1));
+      newState.byId[action.like.liked_id].liked = undefined;
       return newState;
     default:
       return state;

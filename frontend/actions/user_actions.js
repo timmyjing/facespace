@@ -1,6 +1,6 @@
 import * as UserApiUtil from '../util/user_api_util';
 
-
+export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
 
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 
@@ -30,17 +30,22 @@ export const receiveSearchedUsers = payload => ({
 //   type: CLEAR_SEARCHED_USERS
 // });
 
+export const receiveUserErrors = errors => ({
+  type: RECEIVE_USER_ERRORS,
+  errors
+})
+
 export const requestUsers = () => dispatch => (
   UserApiUtil.requestUsers()
-    .then(users => dispatch(receiveUsers(users),
-    errors => console.log(errors.responseJSON)))
+    .then(users => dispatch(receiveUsers(users)),
+    errors => dispatch(receiveUserErrors(errors.statusText)))
 );
 
 // HAD TO CHANGE RECEIVEUSER TO RECEIVEUSERS AS FRIENDS NEED TO BE IN USER SLICE OF STATE
 export const requestUser = id => dispatch => (
   UserApiUtil.requestUser(id)
     .then(payload => dispatch(receiveUser(payload)), errors =>
-    console.log(errors.responseJSON))
+    dispatch(receiveUserErrors(errors.statusText)))
 );
 
 export const searchUsers = query => dispatch => (

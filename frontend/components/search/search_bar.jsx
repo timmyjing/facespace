@@ -8,7 +8,8 @@ class SearchBar extends React.Component {
 
     this.state = {
       query: "",
-      loading: false
+      loading: false,
+      display: false
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -19,21 +20,22 @@ class SearchBar extends React.Component {
 
 
   handleInput(e) {
-    this.setState({query: e.target.value, loading: true});
+    this.setState({query: e.target.value, loading: true, display: true});
   }
 
   fetchUsers() {
-    this.props.searchUsers(this.state).then( () => this.setState({loading: false}));
+    const {query} = this.state;
+    this.props.searchUsers({query}).then( () => this.setState({loading: false}));
   }
 
   hideSearch() {
-    console.log('what up with it mane');
+    setTimeout( () => this.setState({display: false}), 50);
   }
 
   renderUserIndex() {
     const {users} = this.props;
     if (users) {
-      return <UserIndex users={users} />;
+      return <UserIndex display={this.state.display} users={users} />;
     } else {
       return null;
     }

@@ -9,7 +9,7 @@ import {requestUsers, requestUser, searchUsers} from './actions/user_actions';
 import {createFriendRequest, updateFriendRequest} from './util/friend_request_api_util';
 import {fetchFriendRequests} from './actions/friend_request_actions';
 import {createPost, requestPosts} from './actions/post_actions';
-
+import {createLike} from './actions/like_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -19,8 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInfo = window.currentUser;
 
     const preloadedState = { entities: { users: { byId: { [userId]: userInfo , friends_id: [], post_id: []}, allId: []},
-                                         friendRequest: { byId: {}, allId: [], outgoingId: [], outgoingUserId: [] } ,
-                                         posts: { byId: { comment_id: [] }, allId: [] },
+                                         friendRequest: { byId: {}, allId: [], outgoingId: [], outgoingUserId: [], incomingId: [], incomingUserId: [] } ,
+                                         posts: { byId: { comment_id: [] , like_id: [] }, allId: [] },
+                                         likes: { byId: {}},
                                          comments: {byId: {}, allId: [] }
                                        },
                              sessions: { id: userId },
@@ -44,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchFriendRequests = fetchFriendRequests;
   window.createPost = createPost;
   window.requestPosts = requestPosts;
+  window.createLike = createLike;
+
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });

@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
     if logged_in?
       logout!
     else
-      render json: ['No one logged in'], status: 403
+      render json: ['No one logged in.'], status: 403
     end
   end
 

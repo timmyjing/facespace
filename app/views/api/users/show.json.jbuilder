@@ -10,7 +10,7 @@ json.users do
     json.set! @user.id do
       json.extract! @user, :id, :profile_img_url, :first_name, :last_name, :location, :cover_img_url, :bio, :gender, :birth_date
       json.friends_id do
-        json.array! @user.friends.pluck(:id)
+        json.array! @user.friends.pluck(:id).shuffle
       end
       json.post_id do
         json.array! @user.received_posts.pluck(:id).sort.reverse
@@ -27,9 +27,14 @@ json.posts do
         json.comment_id do
           json.array! post.comments.pluck(:id)
         end
+        json.like_id do
+          json.array! post.likes.pluck(:id)
+        end
+        json.liked post.likes.find_by(user_id: current_user.id)
       end
     end
   end
+
   json.allId do
     json.array! @user.received_posts.pluck(:id).sort.reverse #reverse ID here so posts are sorted by most recent
   end
@@ -50,4 +55,21 @@ json.comments do
     json.array! @user.received_posts.map{|post| post.comments}.flatten.pluck(:id)
   end
 
+end
+
+json.likes do
+
+  json.byId do
+    @user.received_posts.each do |post|
+      post.likes.each do |like|
+        json.set! like.id do
+          json.extract! like, :id, :liked_id, :liked_type, :user_id
+        end
+      end
+    end
+  end
+
+  json.allId do
+    json.array! @user.received_posts.map{|post| post.likes}.flatten.pluck(:id)
+  end
 end
