@@ -33,19 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 // TESTING
-  window.login = SessionApiUtil.login;
-  window.logout = SessionApiUtil.logout;
-  window.signup = SessionApiUtil.signup;
-  window.requestUsers = requestUsers;
-  window.requestUser = requestUser;
   window.store = store;
-  window.searchUsers = searchUsers;
-  window.createFriendRequest = createFriendRequest;
-  window.updateFriendRequest = updateFriendRequest;
-  window.fetchFriendRequests = fetchFriendRequests;
-  window.createPost = createPost;
-  window.requestPosts = requestPosts;
-  window.createLike = createLike;
 
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));

@@ -7,8 +7,6 @@ import CommentsContainer from '../comments/comments_container';
 const PostIndexItem = ({post, receiver, author, currentUser, deletePost,
                         updatePost, comments, unlikePost, likePost, likes,
                         users }) => {
-  console.log(post);
-
   const likesMessage = post.like_id.length !== 0 ?
                           (post.liked ?
                             (post.like_id.length > 1 ?
