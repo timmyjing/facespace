@@ -19,5 +19,9 @@
   align-items: center;
 }
 
+.dropdown-content p {
+  max-width: 250px;
+}
+
 
 /* CREDIT TO W3 SCHOOLS  */

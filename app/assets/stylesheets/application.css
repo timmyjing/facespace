@@ -16,6 +16,7 @@
 
 /* CYESYES RESET ABOUT */
 
+
 h1 {
   font-size: 36px;
 }
@@ -40,6 +41,7 @@ h2 {
 
 body {
   background-color: #edf0f5;
+  min-width: 1440px;
 }
 
 

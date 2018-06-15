@@ -12,12 +12,13 @@
 
 
 .dropdown-item {
-  width: 340px;
-  padding: 20px;
+  width: 440px;
+  padding: 10px;
   z-index: 5;
   display: inline-flex;
   justify-content: space-between;
   border-bottom: 1px solid #ccc;
+  font-family: sans-serif;
   /* top: 19px;
   right: -10px; */
 }
@@ -53,12 +54,12 @@
   border-bottom: 1px solid #ccc;
   height: 23px;
   font-family: sans-serif;
-  width: 380px;
+  /* width: 380px; */
 }
 
 .friend-requests-label {
   color: #222;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   padding: 5px;
 }
@@ -92,5 +93,5 @@
   font-size: 13px;
   width: 15px;
   top: 5px;
-  left: 3.5px;
+  left: 5px;
 }

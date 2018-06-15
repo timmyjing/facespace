@@ -6,8 +6,10 @@ const FriendRequestIndexItem = ({requester, accept, decline}) => (
   <li className="dropdown-item">
     <UserImageSquare img={requester.profile_img_url} />
     <p>{requester.first_name} {requester.last_name} wants to be friends!</p>
-    <Button onClick={accept} label={"Accept"}/>
-    <Button onClick={decline} label={"Decline"}/>
+    <div>
+      <Button onClick={accept} label={"Accept"}/>
+      <Button onClick={decline} label={"Decline"}/>
+    </div>
   </li>
 );
 

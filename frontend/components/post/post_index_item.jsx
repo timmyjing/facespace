@@ -37,7 +37,6 @@ class PostIndexItem extends React.Component {
 
   render() {
     const {post, receiver, author, currentUser, deletePost, updatePost, comments, unlikePost, likePost, likes, users } = this.props;
-    console.log(post);
     const likesMessage = post.like_id.length !== 0 ?
                             (post.liked ?
                               (post.like_id.length > 1 ?
