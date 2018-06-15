@@ -31,6 +31,42 @@
   margin-right: 2px;
 }
 
+[class*="post-action-"] {
+  vertical-align: center;
+  overflow: hidden;
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  margin-left: -30px;
+}
+
+.post-action-delete {
+  background: asset-url('waste-bin.png');
+  left: 420px;
+  top: 2px;
+}
+
+.post-action-like {
+  background: asset-url('thumb-up.png');
+}
+
+.post-action-edit {
+  background: asset-url('edit.png');
+  left: 390px;
+  top: 2px;
+}
+
+.post-action-share {
+  background: asset-url('share.png');
+}
+
+.post-action-comment {
+  background: asset-url('comment.png');
+}
 
 .post-i-delete {
   background: asset-url('smallwaste-bin.png');

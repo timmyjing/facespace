@@ -3,7 +3,8 @@ json.posts do
   json.byId do
     @posts.each do |post|
       json.set! post.id do
-        json.extract! post, :id, :receiver_id, :author_id, :content, :created_at
+        json.extract! post, :id, :receiver_id, :author_id, :content
+        json.created_at post.created_at.strftime('%a %b %d %Y')
         json.comment_id do
           json.array! post.comments.pluck(:id).sort #comments sorted by id from oldest to newest
         end
@@ -27,6 +28,7 @@ json.comments do
       post.comments.each do |comment|
         json.set! comment.id do
           json.extract! comment, :id, :parent_comment_id, :post_id, :author_id, :content
+          json.created_at comment.created_at.strftime('%a %b %d %Y')
         end
       end
     end

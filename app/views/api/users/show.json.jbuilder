@@ -23,7 +23,8 @@ json.posts do
   json.byId do
     @user.received_posts.each do |post|
       json.set! post.id do
-        json.extract! post, :id, :content, :author_id, :receiver_id, :created_at
+        json.extract! post, :id, :content, :author_id, :receiver_id
+        json.created_at post.created_at.strftime('%a %b %d %Y')
         json.comment_id do
           json.array! post.comments.pluck(:id)
         end
@@ -46,6 +47,7 @@ json.comments do
       post.comments.each do |comment|
         json.set! comment.id do
           json.extract! comment, :id, :content, :parent_comment_id, :author_id, :post_id
+          json.created_at comment.created_at.strftime('%a %b %d %Y')
         end
       end
     end

@@ -42,7 +42,8 @@ class UserProfile extends React.Component {
   render() {
     const {user, updateFriendRequest, createFriendRequest , users, currentUser, friendRequests} = this.props;
     if (this.state.loading) return null;
-    if (!user) return null;
+    // check if the user detailed information is loaded, might be a partial
+    if (!user || user.friends_id === undefined) return null;
     const numFriends = user.friends_id.length;
     const friends = user.friends_id.slice(0,9).map( id => users[id]);
     user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
