@@ -78,6 +78,7 @@
   cursor: pointer;
   padding: 5px;
   font-family: sans-serif;
+  margin-bottom: -8px;
 }
 
 .post-likes {

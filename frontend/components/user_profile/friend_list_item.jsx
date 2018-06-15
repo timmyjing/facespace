@@ -1,17 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const FriendListItem = ({friend}) => (
-
-  ( friend !== undefined ?
-    (<Link to={`/users/${friend.id}`}>
-      <div className="friend-list-item">
-        <img className="friend-list-image" src={friend.profile_img_url || '/assets/default-user.jpg'} />
-      </div>
+const FriendListItem = ({friend}) => {
+  if (friend === undefined) return null;
+  const imgUrl = friend.profile_img_url || '/assets/default-user.jpg';
+  return (
+    <Link to={`/users/${friend.id}`}>
+        <div className="friend-list-item">
+          <div className='div-image friend-list-image' style={{backgroundImage: `url(${imgUrl})`}}></div>
+        </div>
       <div className="friend-list-item-name">
         {friend.first_name} {friend.last_name}
       </div>
-    </Link>) : null)
-);
+    </Link>);
+};
 
 export default FriendListItem;

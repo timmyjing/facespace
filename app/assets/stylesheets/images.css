@@ -25,6 +25,7 @@
   width: 160px;
   padding: 5px;
   object-fit: cover;
+  outline: 2px solid white;
 }
 
 .friend-list-image {

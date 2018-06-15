@@ -8,7 +8,7 @@ export const createPost = post => (
 
 export const requestPost = id => (
   $.ajax({
-    url: `api/posts/$id`,
+    url: `api/posts/${id}`,
     method: 'GET'
   })
 );
