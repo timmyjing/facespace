@@ -21,7 +21,6 @@ const postsReducer = (state = defaultState, action) => {
     case RECEIVE_POSTS:
     // returning only posts fetched for news feed instead of merging to save memory
       // return merge(newState, action.posts);
-      console.log(action);
       newState.byId = action.posts.byId || {};
       newState.allId = action.posts.allId;
       return newState;
@@ -44,11 +43,8 @@ const postsReducer = (state = defaultState, action) => {
       return newState;
     case REMOVE_COMMENT:
       let commentId = newState.byId[action.comment.post_id].comment_id;
-      console.log(commentId);
       let commentIndex = newState.byId[action.comment.post_id].comment_id.indexOf(action.comment.id);
-      console.log(commentIndex);
       newState.byId[action.comment.post_id].comment_id = commentId.slice(0, commentIndex).concat(commentId.slice(commentIndex + 1));
-      console.log(newState);
       return newState;
     case RECEIVE_LIKE:
       newState.byId[action.like.liked_id].like_id.push(action.like.id);

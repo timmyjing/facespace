@@ -11,7 +11,8 @@ const UserProfileHeader = ({user, createFriendRequest, updateFriendRequest, curr
     </div>
 
     <div className="user-profile-image-container">
-      <div className='div-image user-profile-image' style={{backgroundImage: `url(${user.profile_img_url})`}}></div>
+      <div className='div-image user-profile-image' title={`${user.first_name} ${user.last_name}` === 'Aaron Wayne' ? 'Wayne Train' : `${user.first_name} ${user.last_name}`} 
+        style={{backgroundImage: `url(${user.profile_img_url})`}}></div>
     </div>
 
     <div className="user-profile-name">

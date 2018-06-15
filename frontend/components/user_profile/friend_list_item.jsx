@@ -5,7 +5,7 @@ const FriendListItem = ({friend}) => {
   if (friend === undefined) return null;
   const imgUrl = friend.profile_img_url || '/assets/default-user.jpg';
   return (
-    <Link to={`/users/${friend.id}`}>
+    <Link to={`/users/${friend.id}`} title={`${friend.first_name} ${friend.last_name}`}>
         <div className="friend-list-item">
           <div className='div-image friend-list-image' style={{backgroundImage: `url(${imgUrl})`}}></div>
         </div>

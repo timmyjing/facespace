@@ -7,7 +7,7 @@
   padding: 2px 30px;
   overflow-wrap: break-word;
   font-size: 13px;
-  font-family: Arial;
+  font-family: sans-serif;
   /* display: flex;
   flex-direction: column; */
   /* width: 482px; */
@@ -65,7 +65,7 @@
 
 
 .comment-content a {
-  color: #3b5998;
+  color: #365899;
   margin-left: 16px;
   margin-right: 6px;
 }
