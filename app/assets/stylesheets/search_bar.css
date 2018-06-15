@@ -39,4 +39,20 @@
 
 .search-container {
   width: 60%;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+.search-i-container {
+  position: absolute;
+  border: 1px solid #3b5998;
+  padding: 1px 7px;
+  height: 24px;
+  width: 24px;
+  right: 13%;
+  z-index: 5;
+  background: #edf0f5;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }

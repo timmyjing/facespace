@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const FriendListItem = ({friend}) => {
   if (friend === undefined) return null;
-  const imgUrl = friend.profile_img_url || '/assets/user.png';
+  const imgUrl = friend.profile_img_url || '/assets/default-user.jpg';
   return (
     <Link to={`/users/${friend.id}`} title={`${friend.first_name} ${friend.last_name}`}>
         <div className="friend-list-item">

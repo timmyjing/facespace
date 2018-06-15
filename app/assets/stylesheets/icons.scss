@@ -49,7 +49,21 @@
   height: 32px;
   width: 32px;
   position: absolute;
+  top: 25px;
 }
+
+[class*="search-icon"] {
+  overflow: hidden;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+}
+
+.search-icon {
+  background: asset-url('search.png');
+}
+
+
 
 .splash-i-news {
   background: asset-url('splash-newsfeed.png');

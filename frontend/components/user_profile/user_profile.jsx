@@ -47,7 +47,7 @@ class UserProfile extends React.Component {
     if (!user || user.friends_id === undefined) return null;
     const numFriends = user.friends_id.length;
     const friends = user.friends_id.slice(0,9).map( id => users[id]);
-    user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/user.png';
+    user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
     return (
       <div className="user-profile-container">
         <UserProfileHeader currentUser={currentUser} user={user} updateFriendRequest={updateFriendRequest}
