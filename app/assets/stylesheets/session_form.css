@@ -8,7 +8,6 @@
 }
 
 .create-user-form input {
-  border: 1.25px solid #8b9dc3;
   padding: 6px 10px;
   border-radius: 5px;
   color: black;
@@ -28,7 +27,11 @@
   /* border: 1px solid #b00;
   border-radius: 5px; */
   /* outline: 1.5px solid #CC3D3D; */
-  border-color: #CC3D3D;
+  border: 1.25px solid #CC3D3D;
+}
+
+.no-warning {
+  border: 1.25px solid #8b9dc3;
 }
 
 .create-user-form label{
@@ -101,7 +104,6 @@
 
 .session-input {
   background: white;
-  border: 1.25px solid black;
   width: 142px;
   font-size: 12px;
   color: black;

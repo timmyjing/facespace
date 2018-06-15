@@ -11,7 +11,7 @@ const Input = ({type, value, onChange, placeholder, errorMsg, className, name}) 
       </div>
     );
   } else {
-    return ( <input className={`${className}`} name={name} type={type} value={value} onChange={onChange} placeholder={placeholder} /> );
+    return ( <input className={`${className} no-warning`} name={name} type={type} value={value} onChange={onChange} placeholder={placeholder} /> );
   }
 };
 

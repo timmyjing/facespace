@@ -52,12 +52,12 @@ class UserForm extends React.Component {
           </div>
 
           <form className="flex-container">
-              <div id={genderInputWarnings} className="gender-input">
+              <div className={`gender-input ${genderInputWarnings}`}>
                 <Input errorMsg={errors.gender} type="radio" name="gender" value="female" onChange={this.handleInput('gender')} />
                 <label for="gender-female">Female</label>
               </div>
 
-              <div id={genderInputWarnings} className="gender-input">
+              <div className={`gender-input ${genderInputWarnings}`}>
                 <Input errorMsg={errors.gender} type="radio" name="gender" value="male" onChange={this.handleInput('gender')} />
                 <label for="gender-male">Male</label>
               </div>
