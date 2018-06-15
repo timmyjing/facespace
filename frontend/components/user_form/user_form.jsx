@@ -48,7 +48,7 @@ class UserForm extends React.Component {
             <div>
               <Input errorMsg={errors.birth} type="date" value={this.state.birth_date} onChange={this.handleInput('birth_date')}/>
             </div>
-            <div className="small-text">{'Why do I need to provide my birthday?'}</div>
+            <p className="splash-link">{'Why do I need to provide my birthday?'}</p>
           </div>
 
           <form className="flex-container">
@@ -64,7 +64,7 @@ class UserForm extends React.Component {
           </form>
 
 
-          <p className="tiny-font">{'By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.'}</p>
+          <p className="splash-policy">By clicking Sign Up, you agree to our <span className="splash-link">Terms, Data Policy</span> and <span className="splash-link">Cookies Policy</span>. You may receive SMS Notifications from us and can opt out any time.</p>
 
           <button id="sign-up-button" onClick={this.handleSubmit} type="submit">Sign Up</button>
         </form>

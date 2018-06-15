@@ -1,7 +1,6 @@
 .header-tab-dropdown {
  border-left: 1px solid #ccc;
  border-right: 1px solid #ccc;
- border-bottom: 1px solid #ccc;
  /* display: none; */
  border-radius: 3px;
  background-color: white;
@@ -21,6 +20,10 @@
   font-family: sans-serif;
   /* top: 19px;
   right: -10px; */
+}
+
+.dropdrop-item:last-child {
+  border-bottom: 0px solid white;
 }
 
 .header-tab {
@@ -56,6 +59,8 @@
   font-family: sans-serif;
   /* width: 380px; */
 }
+
+
 
 .friend-requests-label {
   color: #222;

@@ -13,7 +13,7 @@
   color: black;
   background: white;
   font-size: 20px;
-  margin: 2.5px 2.5px;
+  margin: 5px 2.5px;
 }
 
 
@@ -68,7 +68,7 @@
 }
 
 .login-button {
-  font-weight: 700;
+  font-weight: 500;
   color: white;
   background-color: #4267b2;
   border: 1px solid black;
@@ -94,7 +94,9 @@
   font-size: 12px;
   font-family: "Lucida Grande";
   left: 800px;
-  top: 20px;
+  /* top: 20px; */
+  display: inline-flex;
+  margin-top: 18px;
 }
 
 .session-form-div {
@@ -135,6 +137,7 @@
   padding: 30px 20px 0px 20px ;
   margin: 0 auto;
   font-family: sans-serif;
+  font-size: 14px;
 }
 
 .strong-text {
@@ -158,4 +161,33 @@
 
 .nice-try {
   text-decoration: underline;
+}
+
+
+.splash-header {
+  color: #666;
+}
+
+.splash-header span {
+  margin-left: 40px;
+}
+
+.splash-link {
+  cursor: pointer;
+  color: #365899;
+  font-size: 12px;
+  max-width: 150px;
+}
+
+.splash-policy {
+  color: #777;
+  font-size: 12px;
+  max-width: 370px;
+  padding: 5px;
+}
+
+.splash-bold {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
 }

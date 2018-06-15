@@ -25,7 +25,7 @@ class SessionForm extends React.Component {
   render() {
     const errorMsg = this.props.errors === undefined ?  null : this.props.errors[0];
     return (
-        <form className="flex-container session-form" onSubmit={this.handleSubmit}>
+        <form className="session-form" onSubmit={this.handleSubmit}>
           <div className="session-form-div">
           <label>Email or Phone:
              <br />

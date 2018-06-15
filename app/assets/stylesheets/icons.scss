@@ -44,6 +44,25 @@
   margin-left: -30px;
 }
 
+[class*="splash-i-"] {
+  overflow: hidden;
+  height: 32px;
+  width: 32px;
+  position: absolute;
+}
+
+.splash-i-news {
+  background: asset-url('splash-newsfeed.png');
+}
+
+.splash-i-timeline {
+  background: asset-url('splash-timeline.png');
+}
+
+.splash-i-share {
+  background: asset-url('splash-share.png');
+}
+
 .post-action-delete {
   background: asset-url('waste-bin.png');
   left: 420px;

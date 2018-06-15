@@ -28,6 +28,7 @@
   font-size: 12px;
   font-family: Arial;
   line-height: 20px;
+  white-space: pre;
 }
 
 .comment-item {

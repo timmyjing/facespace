@@ -49,6 +49,7 @@ body {
   display: flex;
   flex-direction: space-between;
   border-style: border-box;
+  align-items: center;
 }
 
 
@@ -57,7 +58,8 @@ body {
 }
 
 .important-text {
-  font-weight: 520;
+  font-weight: bold;
+  font-family: 'Freight Sans Bold';
 }
 
 .tiny-font {
