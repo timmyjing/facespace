@@ -10,12 +10,14 @@ const mapStateToProps = (state, ownProps) => {
   const user = state.entities.users.byId[ownProps.match.params.userId];
   const users = state.entities.users.byId;
   const friendRequests = state.entities.friendRequests;
+  const errors = state.errors.user;
 
   return {
     currentUser,
     user,
     users,
-    friendRequests
+    friendRequests,
+    errors
   };
 };
 

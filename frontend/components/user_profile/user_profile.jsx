@@ -23,7 +23,8 @@ class UserProfile extends React.Component {
   }
 
   requestUser() {
-    this.props.requestUser(this.props.match.params.userId).then( () => this.setState({loading: false}) );
+    this.props.requestUser(this.props.match.params.userId)
+      .then( () => this.setState({loading: false}), errors => this.props.history.goBack());
   }
 
 

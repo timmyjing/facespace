@@ -9,6 +9,7 @@ json.users do
     end
     json.set! @user.id do
       json.extract! @user, :id, :profile_img_url, :first_name, :last_name, :location, :cover_img_url, :bio, :gender, :birth_date
+      json.birth_date @user.birth_date.strftime('%b %d %Y')
       json.friends_id do
         json.array! @user.friends.pluck(:id).shuffle
       end
