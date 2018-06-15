@@ -14,7 +14,6 @@ const CommentIndexItem = ({deleteComment, createComment, author, comment, curren
         </div>
         {author === currentUser ? <i className="post-i-delete-comment" title="Delete Comment" onClick={() => deleteComment(comment.id)}></i> : null}
       </div>
-    <CommentForm currentUser={currentUser}/>
   </li>
 );
 
