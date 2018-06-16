@@ -3,7 +3,7 @@ import PostIndexItem from './post_index_item';
 import UserImageThumb from '../image/user_image_thumb';
 
 const PostIndex = ({users, posts, user, currentUser, className, updatePost, deletePost, comments, likes, likePost, unlikePost}) => (
-    <ul className={className} >
+    <ul id="user-timeline" className={className} >
       { posts.map( post =>
         <PostIndexItem key={post.id}
           post={post}

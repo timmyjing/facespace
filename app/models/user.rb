@@ -45,6 +45,14 @@ class User < ApplicationRecord
   class_name: :Like,
   dependent: :destroy
 
+  has_many :received_posts_comments,
+  through: :received_posts,
+  source: :comments
+
+  has_many :received_posts_likes,
+  through: :received_posts,
+  source: :likes
+  
   def likes?(id)
     self.likes.exists?(id)
   end

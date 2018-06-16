@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
 
   def show
     # @user = User.find(params[:id])
-    @user = User.includes(:friends, :received_posts).find(params[:id])
+    @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments).find(params[:id])
     if @user
       # loading friends this way might not be the most efficient for larger scales
       # @friends = @user.friends

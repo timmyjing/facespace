@@ -8,7 +8,8 @@ json.users do
       end
     end
     json.set! @user.id do
-      json.extract! @user, :id, :profile_img_url, :first_name, :last_name, :location, :cover_img_url, :bio, :gender, :birth_date
+      json.extract! @user, :id, :profile_img_url, :first_name, :last_name, :location, :cover_img_url, :bio
+      json.gender @user.gender.capitalize
       json.birth_date @user.birth_date.strftime('%b %d %Y')
       json.friends_id do
         json.array! @user.friends.pluck(:id).shuffle
@@ -42,20 +43,20 @@ json.posts do
   end
 end
 
+
 json.comments do
+
   json.byId do
-    @user.received_posts.each do |post|
-      post.comments.each do |comment|
-        json.set! comment.id do
-          json.extract! comment, :id, :content, :parent_comment_id, :author_id, :post_id
-          json.created_at comment.created_at.strftime('%a %b %d %Y')
-        end
+    @user.received_posts_comments.each do |comment|
+      json.set! comment.id do
+        json.extract! comment, :id, :content, :parent_comment_id, :author_id, :post_id
+        json.created_at comment.created_at.strftime('%a %b %d %Y')
       end
     end
   end
 
   json.allId do
-    json.array! @user.received_posts.map{|post| post.comments}.flatten.pluck(:id)
+    json.array! @user.received_posts_comments.pluck(:id)
   end
 
 end
@@ -63,16 +64,14 @@ end
 json.likes do
 
   json.byId do
-    @user.received_posts.each do |post|
-      post.likes.each do |like|
-        json.set! like.id do
-          json.extract! like, :id, :liked_id, :liked_type, :user_id
-        end
+    @user.received_posts_likes.each do |like|
+      json.set! like.id do
+        json.extract! like, :id, :liked_id, :liked_type, :user_id
       end
     end
   end
 
   json.allId do
-    json.array! @user.received_posts.map{|post| post.likes}.flatten.pluck(:id)
+    json.array! @user.received_posts_likes.pluck(:id)
   end
 end

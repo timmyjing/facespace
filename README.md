@@ -47,7 +47,7 @@ The user requested is joined with the friends and received posts
 
 ```
 def show
-  @user = User.includes(:friends, :received_posts).find(params[:id])
+    @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments).find(params[:id])
   if @user
     render 'api/users/show'
   else
@@ -101,19 +101,18 @@ json.posts do
 end
 
 json.comments do
+
   json.byId do
-    @user.received_posts.each do |post|
-      post.comments.each do |comment|
-        json.set! comment.id do
-          json.extract! comment, :id, :content, :parent_comment_id, :author_id, :post_id
-          json.created_at comment.created_at.strftime('%a %b %d %Y')
-        end
+    @user.received_posts_comments.each do |comment|
+      json.set! comment.id do
+        json.extract! comment, :id, :content, :parent_comment_id, :author_id, :post_id
+        json.created_at comment.created_at.strftime('%a %b %d %Y')
       end
     end
   end
 
   json.allId do
-    json.array! @user.received_posts.map{|post| post.comments}.flatten.pluck(:id)
+    json.array! @user.received_posts_comments.pluck(:id)
   end
 
 end
@@ -121,18 +120,17 @@ end
 json.likes do
 
   json.byId do
-    @user.received_posts.each do |post|
-      post.likes.each do |like|
-        json.set! like.id do
-          json.extract! like, :id, :liked_id, :liked_type, :user_id
-        end
+    @user.received_posts_likes.each do |like|
+      json.set! like.id do
+        json.extract! like, :id, :liked_id, :liked_type, :user_id
       end
     end
   end
 
   json.allId do
-    json.array! @user.received_posts.map{|post| post.likes}.flatten.pluck(:id)
+    json.array! @user.received_posts_likes.pluck(:id)
   end
+  
 end
 ```
 

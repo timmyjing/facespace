@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../button/button';
+import { HashLink } from 'react-router-hash-link'
 
 
 const UserProfileHeader = ({user, createFriendRequest, updateFriendRequest, currentUser, outgoingUserId, incomingUserId}) => (
@@ -32,9 +33,9 @@ const UserProfileHeader = ({user, createFriendRequest, updateFriendRequest, curr
     </div>
 
       <ul className="user-profile-tabs">
-        <li><a>Timeline</a></li>
-        <li><a>About</a></li>
-        <li><a>Friends</a></li>
+        <li><HashLink to="#user-timeline">Timeline</HashLink></li>
+        <li><HashLink to="#user-info">About</HashLink></li>
+        <li><HashLink to="#user-friends">Friends</HashLink></li>
         <li><a>Photos</a></li>
         <li><a>More</a></li>
       </ul>
