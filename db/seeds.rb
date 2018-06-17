@@ -38,6 +38,13 @@ weeknd = User.create(first_name: 'The', last_name: 'Weeknd', email: 'weeknd', bi
   bio: 'got a sweet asian chick, she go lo mein', cover_img_url: 'http://getwallpapers.com/wallpaper/full/7/3/3/66309.jpg')
 tyrone = User.create(first_name: 'Im', last_name: 'Tyrone', email: 'tyrone', birth_date: '1990/01/01', gender: 'male', password: 'password', profile_img_url: 'https://i.ytimg.com/vi/2oTTolojwng/maxresdefault.jpg',
   bio: 'im tyrone and smoking is bad for you')
+carly = User.create(first_name: 'Carly Rae', last_name: 'Jepsen', email: 'carly', birth_date: '1990/01/01', gender: 'female', password: 'password', profile_img_url: 'https://static.spin.com/files/120706-cr-jepsen.png',
+  bio: 'add me maybe?', cover_img_url: 'https://cdn-images-1.medium.com/max/800/1*4U6GVwuii6sT_EeAJ_xS3Q.png')
+petty = User.create(first_name: 'Petty', last_name: 'Mayonnaise', email: 'petty', birth_date: '1990/01/01', gender: 'female', password: 'password', profile_img_url: 'https://memecrunch.com/meme/9VRF4/petty-mayonnaise/image.png?w=500&c=1',
+  bio: 'left on read', cover_img_url: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/petty-memes-1507919419.jpg')
+hotdog = User.create(first_name: 'Snapchat', last_name: 'Hot-Dog III', email: "hotdog", location: '7-11', password: 'password', birth_date: '1990/01/01', gender: 'male', profile_img_url: 'https://media1.tenor.com/images/6016e1b0a3c9da4a1ff3f55b0ca2984c/tenor.gif?itemid=9165252',
+  bio: 'the spicy bite with the spicy dance moves', cover_img_url: 'https://thefreshtoast.com/wp-content/uploads/2017/10/zjjhbpvwy8w.jpg')
+
 friend1 = Friendship.create(user_id: aaron.id, friend_id: weeknd.id)
 friend2 = Friendship.create(user_id: weeknd.id, friend_id: aaron.id)
 
@@ -46,6 +53,13 @@ friend4 = Friendship.create(user_id: lavar.id, friend_id: aaron.id)
 
 friend5 = Friendship.create(user_id: aaron.id, friend_id: mcd.id)
 friend6 = Friendship.create(user_id: mcd.id, friend_id: aaron.id)
+
+friend7 = Friendship.create(user_id: carly.id, friend_id: petty.id)
+friend8 = Friendship.create(user_id: petty.id, friend_id: carly.id)
+
+
+
+
 
 
 request1 = FriendRequest.create(requester_id: fuzzy.id, requestee_id: aaron.id)
@@ -57,8 +71,13 @@ post1 = Post.create(author_id: aaron.id , receiver_id: aaron.id, content: 'Will 
 post2 = Post.create(author_id: weeknd.id , receiver_id: weeknd.id, content: 'got a sweet asian chick, she go lo mein')
 post3 = Post.create(author_id: lavar.id, receiver_id: lavar.id, content: 'back in my heyday, I would destroy Aaron Wayne at swimming')
 post4 = Post.create(author_id: tyrone.id, receiver_id: tyrone.id, content: 'smoking is bad for you')
+post5 = Post.create(author_id: carly.id, receiver_id: carly.id, content: 'hey i just met you, and this is crazy, but heres my function, so callback maybe?')
+post6 = Post.create(author_id: petty.id, receiver_id: petty.id, content: 'feeling extra petty and extra extra today')
+post7 = Post.create(author_id: hotdog.id, receiver_id: hotdog.id, content: 'when you catch Jesse stealing your dance moves smh')
 
 comment1 = Comment.create(author_id: swaggy.id, content: 'man you averaged 2 points a game in your heyday', post_id: post3.id )
+comment2 = Comment.create(author_id: petty.id, content: 'when you never get a callback =(', post_id: post5.id )
+
 
 like1 = Like.create(user_id: aaron.id, liked_type: 'Post', liked_id: post2.id)
 like2 = Like.create(user_id: lavar.id, liked_type: 'Post', liked_id: post3.id)
