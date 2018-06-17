@@ -54,3 +54,7 @@ export const searchUsers = query => dispatch => (
         dispatch(receiveSearchedUsers(payload)),
     errors => dispatch(clearSearchedUsers()))
 );
+
+export const updateUser = user => dispatch => (
+  UserApiUtil.updateUser(user).then(user => dispatch(receiveUser(user)) , errors => console.log(errors))
+);

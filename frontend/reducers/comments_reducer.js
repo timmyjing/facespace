@@ -20,6 +20,7 @@ const commentsReducer = (state = defaultState, action) => {
       newState.byId = action.comments.byId || {};
       return newState;
     case RECEIVE_USER:
+      if (!action.payload.view_content) return defaultState;
       newState.byId = action.payload.comments.byId || {};
       newState.allId = action.payload.comments.allId;
       return newState;

@@ -1,6 +1,6 @@
 import {RECEIVE_CURRENT_USER} from '../actions/session_actions';
 import {RECEIVE_USER, RECEIVE_USERS, RECEIVE_SEARCHED_USERS} from '../actions/user_actions';
-import {RECEIVE_FRIEND_REQUESTS, ACCEPT_FRIEND_REQUEST} from '../actions/friend_request_actions';
+import {RECEIVE_FRIEND_REQUESTS, ACCEPT_FRIEND_REQUEST, REMOVE_FRIEND} from '../actions/friend_request_actions';
 import {RECEIVE_POSTS, RECEIVE_POST} from '../actions/post_actions';
 import merge from 'lodash/merge';
 
@@ -36,6 +36,12 @@ const usersReducer = (state = defaultState, action) => {
       return merge(action.users, newState);
     case ACCEPT_FRIEND_REQUEST:
       newState.byId[action.request.requestee_id].friends_id.push(action.request.requester_id);
+      return newState;
+    case REMOVE_FRIEND:
+      newState.byId[action.friendship.user_id].friendship = null;
+      let friendsId = newState.byId[action.friendship.user_id].friends_id;
+      let friendIndex = friendsId.indexOf(action.friendship.friend_id);
+      newState.byId[action.friendship.user_id].friends_id = friendsId.slice(0, friendIndex).concat(friendsId.slice(friendIndex + 1));
       return newState;
     default:
       return state;

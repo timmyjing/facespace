@@ -38,6 +38,7 @@ const likesReducer = (state = defaultState, action) => {
     case RECEIVE_POSTS:
       return merge(defaultState, action.likes);
     case RECEIVE_USER:
+      if (!action.payload.view_content) return defaultState;
       return merge( defaultState, action.payload.likes);
     default:
       return state;

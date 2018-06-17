@@ -17,9 +17,8 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    // FETCH USER PROFILE
-    this.props.requestUser(this.props.match.params.userId).then( () => this.setState({loading: false}),
-    () => this.props.history.push('/'));
+    if (this.props.history.action === 'REPLACE') this.props.history.replace(this.props.match.url);
+    this.requestUser();
   }
 
   requestUser() {
@@ -28,23 +27,18 @@ class UserProfile extends React.Component {
   }
 
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.match.params.userId !== this.props.match.params.userId) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.userId !== this.props.match.params.userId && !this.state.loading) {
       this.setState({loading: true}, this.requestUser);
       // since state wasnt set back to loading, the render logic was proceeded with before some user info was loaded
       // this.requestUser(this.props.match.params.userId).then(() => this.setState({loading: false}));
     }
   }
 
-  componentWillUnmount() {
-    if (this.props.history.action === 'REPLACE') this.props.history.push(this.props.match.url);
-  }
-
   render() {
-    const {user, updateFriendRequest, createFriendRequest , users, currentUser, friendRequests} = this.props;
-    if (this.state.loading) return null;
+    const {deleteFriend, user, updateFriendRequest, createFriendRequest , users, currentUser, friendRequests} = this.props;
+    if (this.state.loading || !user || user.friends_id === undefined) return null;
     // check if the user detailed information is loaded, might be a partial
-    if (!user || user.friends_id === undefined) return null;
     const numFriends = user.friends_id.length;
     const friends = user.friends_id.slice(0,9).map( id => users[id]);
     user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
@@ -52,11 +46,11 @@ class UserProfile extends React.Component {
       <div className="user-profile-container">
         <UserProfileHeader currentUser={currentUser} user={user} updateFriendRequest={updateFriendRequest}
           outgoingUserId={friendRequests.outgoingUserId} createFriendRequest={createFriendRequest}
-          incomingUserId={friendRequests.incomingUserId} />
+          incomingUserId={friendRequests.incomingUserId} deleteFriend={deleteFriend} />
         <UserProfileFriendsContainer friends={friends} numFriends={numFriends} />
 
         <UserProfileDetail user={user} />
-        { currentUser.friends_id.indexOf(user.id) !== -1 || currentUser.id === user.id ? (
+        { user.friendship !== null || currentUser.id === user.id ? (
           <div>
             <CreatePostFormContainer className={"post-form-profile"} user={user} />
             <PostIndexContainer />

@@ -1,7 +1,6 @@
 import {connect} from 'react-redux';
 import PostIndex from './post_index'
 import {withRouter} from 'react-router-dom';
-import {fetchPosts} from '../../actions/post_actions';
 import {updatePost, deletePost} from '../../actions/post_actions';
 import {createLike, deleteLike} from '../../actions/like_actions';
 

@@ -17,18 +17,19 @@
 
 .user-search-item {
   position: relative;
-  padding: 10px;
+  padding: 12px;
   color: black;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   z-index: 4;
+  left: 0.25px;
 }
 
 .user-search-item:hover {
   background: #afbdd4;
-  display: flex;
+  margin: -1px;
 }
 
 .user-search-name {

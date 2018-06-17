@@ -8,6 +8,8 @@ export const ACCEPT_FRIEND_REQUEST = 'ACCEPT_FRIEND_REQUEST';
 
 export const DECLINE_FRIEND_REQUEST = 'DECLINE_FRIEND_REQUEST';
 
+export const REMOVE_FRIEND = 'REMOVE_FRIEND';
+
 export const createFriendRequest = requestee_id => dispatch => (
   FriendRequestApiUtil.createFriendRequest({requestee_id}).then(request => dispatch(sendFriendRequest(request)))
 );
@@ -28,6 +30,7 @@ export const declineRequest = request => ({
 });
 
 
+
 export const acceptFriendRequest = id => dispatch => (
   FriendRequestApiUtil.updateFriendRequest(id).then( request => dispatch(acceptedRequest(request)))
 );
@@ -45,4 +48,15 @@ export const receiveFriendRequests = ({users, requests}) => ({
     type: RECEIVE_FRIEND_REQUESTS,
     users,
     requests
+});
+
+
+export const deleteFriend = id => dispatch => (
+  FriendRequestApiUtil.deleteFriend(id).then( friendship => dispatch(removeFriend(friendship)), errors => console.log(errors))
+);
+
+
+export const removeFriend = friendship => ({
+  type: REMOVE_FRIEND,
+  friendship
 });

@@ -93,12 +93,13 @@
   position: absolute;
   background: red;
   color: white;
+  text-align: center;
   border-radius: 50%;
   height: 15px;
   font-size: 13px;
   width: 15px;
   top: 5px;
-  left: 5px;
+  left: 6px;
 }
 
 .friend-request-name-tag {

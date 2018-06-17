@@ -57,3 +57,7 @@
   top: 8px;
   left: 350px;
 }
+
+.friended-button:hover {
+  content: 'Remove Friend';
+}

@@ -17,11 +17,8 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
-    @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments).find(params[:id])
+    @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments, :friendships).find(params[:id])
     if @user
-      # loading friends this way might not be the most efficient for larger scales
-      # @friends = @user.friends
       render 'api/users/show'
     else
       render json: ['User not found.'], status: 404
@@ -37,16 +34,22 @@ class Api::UsersController < ApplicationController
       else
         @users = User.where('first_name ~ ?', full_name[0])
       end
-    # else
-    #   @users = User.none
     end
     render 'api/users/index'
   end
 
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      render 'api/users/show'
+    else
+      render json: @user.errors.full_messages, status: 404
+    end
+  end
 
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender)
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender, :profile_img_url, :cover_img_url)
   end
 end

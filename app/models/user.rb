@@ -52,9 +52,22 @@ class User < ApplicationRecord
   has_many :received_posts_likes,
   through: :received_posts,
   source: :likes
-  
+
+  has_many :received_post_authors,
+  through: :received_posts,
+  source: :author
+
+  has_many :received_post_commenters,
+  through: :received_posts,
+  source: :commenters
+
+
   def likes?(id)
     self.likes.exists?(id)
+  end
+
+  def viewable?(user)
+    self.is_friends?(user.id) || self == user
   end
 
 

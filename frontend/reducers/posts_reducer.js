@@ -5,7 +5,7 @@ import {RECEIVE_LIKE, REMOVE_LIKE} from '../actions/like_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
-  byId: { comment_id: [] , like_id: []},
+  byId: {},
   allId: []
 };
 
@@ -30,6 +30,7 @@ const postsReducer = (state = defaultState, action) => {
     case RECEIVE_USER:
       // return merge(newState, action.payload.posts);
       // when loading a user profile, only store their posts in the post slice of state, news feed fetches new posts anyways
+      if (!action.payload.view_content) return defaultState;
       newState.byId = action.payload.posts.byId || {};
       newState.allId = action.payload.posts.allId;
       return newState;

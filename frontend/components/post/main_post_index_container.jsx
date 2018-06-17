@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PostIndex from './post_index';
 import {requestPosts, deletePost, updatePost} from '../../actions/post_actions';
 import {createLike, deleteLike} from '../../actions/like_actions';
+import {withRouter} from 'react-router-dom';
 
 
 class MainPostIndexContainer extends React.Component {
@@ -16,7 +17,6 @@ class MainPostIndexContainer extends React.Component {
   componentDidMount() {
     this.props.requestPosts().then( () => this.setState({loading: false}));
   }
-
 
   render() {
     if (this.state.loading === true) return null;
@@ -60,4 +60,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainPostIndexContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainPostIndexContainer));

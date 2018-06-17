@@ -51,7 +51,7 @@
   font-weight: 400;
   overflow-wrap: break-word;
   padding: 5px 10px;
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 

@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {updateUser} from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
   user: state.entities.users.byId[state.session.id]

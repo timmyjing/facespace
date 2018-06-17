@@ -20,3 +20,11 @@ export const searchUsers = query => (
     data: query
   })
 );
+
+export const updateUser = user => (
+  $.ajax({
+    url: `api/users/${id}`,
+    method: 'PATCH',
+    data: { user }
+  })
+);
