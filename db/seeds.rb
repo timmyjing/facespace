@@ -36,7 +36,8 @@ User.create(first_name: 'Car', last_name: 'Salesman', email: 'car', birth_date: 
   bio: 'lowballer certified. business is the only sport that is 24/7 365 days a year', cover_img_url: 'https://i.kinja-img.com/gawker-media/image/upload/s--yBkqnOoh--/c_scale,f_auto,fl_progressive,q_80,w_800/188nduwtp1h0kjpg.jpg')
 weeknd = User.create(first_name: 'The', last_name: 'Weeknd', email: 'weeknd', birth_date: '1990/01/01', gender: 'male', password: 'password', profile_img_url: 'https://www.edmsauce.com/wp-content/uploads/2018/03/the-weeknd-good.png',
   bio: 'got a sweet asian chick, she go lo mein', cover_img_url: 'http://getwallpapers.com/wallpaper/full/7/3/3/66309.jpg')
-
+tyrone = User.create(first_name: 'Im', last_name: 'Tyrone', email: 'tyrone', birth_date: '1990/01/01', gender: 'male', password: 'password', profile_img_url: 'https://i.ytimg.com/vi/2oTTolojwng/maxresdefault.jpg',
+  bio: 'im tyrone and smoking is bad for you')
 friend1 = Friendship.create(user_id: aaron.id, friend_id: weeknd.id)
 friend2 = Friendship.create(user_id: weeknd.id, friend_id: aaron.id)
 
@@ -55,7 +56,7 @@ request1 = FriendRequest.create(requester_id: ayy.id, requestee_id: aaron.id)
 post1 = Post.create(author_id: aaron.id , receiver_id: aaron.id, content: 'Will the real Aaron Wayne please stand up?')
 post2 = Post.create(author_id: weeknd.id , receiver_id: weeknd.id, content: 'got a sweet asian chick, she go lo mein')
 post3 = Post.create(author_id: lavar.id, receiver_id: lavar.id, content: 'back in my heyday, I would destroy Aaron Wayne at swimming')
-
+post4 = Post.create(author_id: tyrone.id, receiver_id: tyrone.id, content: 'smoking is bad for you')
 
 comment1 = Comment.create(author_id: swaggy.id, content: 'man you averaged 2 points a game in your heyday', post_id: post3.id )
 

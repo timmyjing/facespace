@@ -9,4 +9,4 @@ const mapDispatchToProps = dispatch => ({
   edit: user => dispatch(updateUser(user))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
+export default connect(mapStateToProps, mapDispatchToProps)(UserDetailForm);

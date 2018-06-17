@@ -41,6 +41,9 @@ const usersReducer = (state = defaultState, action) => {
       newState.byId[action.friendship.user_id].friendship = null;
       let friendsId = newState.byId[action.friendship.user_id].friends_id;
       let friendIndex = friendsId.indexOf(action.friendship.friend_id);
+      let currUserFriendsId = newState.byId[action.friendship.friend_id].friends_id;
+      let currUserFriendIndex = currUserFriendsId.indexOf(action.friendship.user_id);
+      newState.byId[action.friendship.friend_id].friends_id = currUserFriendsId.slice(0, currUserFriendIndex).concat(currUserFriendsId.slice(currUserFriendIndex + 1));
       newState.byId[action.friendship.user_id].friends_id = friendsId.slice(0, friendIndex).concat(friendsId.slice(friendIndex + 1));
       return newState;
     default:
