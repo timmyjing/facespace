@@ -17,6 +17,8 @@ Facespace is a social media platform that is inspired by Facebook built using a 
 Friendship is an important feature in social media since personal privacy is a big concern. You don't want to have your wall posts and activities
 exposed to someone who is not in your network. Friendship is achieved through making a friend request. A friend request resource can be either accepted or destroy and this is managed through the CRUD cycle. Once this friend request is accepted, a bidirectional friendship is created which models a mutual relationship. This differentiates a friendship from a social media follow as it must be mutual. The friendship API is hidden from the user in order to protect privacy concerns and to require a mutual relationship.
 
+
+FriendRequest#update
 ```  
   def update
     @request = current_user.friend_requests.find(params[:id])
@@ -43,11 +45,11 @@ Consideration was also put into what data is returned from the back-end. When qu
 
 Backend UsersController#Show
 
-The user requested is joined with the friends and received posts
+The user requested by the show method is eagerly loaded with all their associations needed to render.
 
 ```
 def show
-    @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments).find(params[:id])
+  @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments, :friendships).find(params[:id])
   if @user
     render 'api/users/show'
   else
@@ -56,82 +58,23 @@ def show
 end
 ```
 
-User JSON Jbuilder Payload
+
+Additional logic was added in the JSON Jbuilder where a User#viewable? method was used in order to check if the current session user had the privileges to view the profile requested based on if they are friends or if the profile requested is the current user. Doing so prevents private user data from reaching the front end unless the current user has the privileges to view it. This not only protects data but also prevents the front end from having to hold unnecessary data that would not get rendered. The requested users wall content is only returned from the back end if the requested user's content is viewable by the current user.
+
+JSON Jbuilder User#show payload snippet
 ```
-json.users do
-  json.byId do
-    @user.friends.each do |friend|
-      json.set! friend.id do
-        json.partial! 'api/users/user', user: friend
-      end
-    end
-    json.set! @user.id do
-      json.extract! @user, :id, :profile_img_url, :first_name, :last_name, :location, :cover_img_url, :bio, :gender, :birth_date
-      json.birth_date @user.birth_date.strftime('%b %d %Y')
-      json.friends_id do
-        json.array! @user.friends.pluck(:id).shuffle
-      end
-      json.post_id do
-        json.array! @user.received_posts.pluck(:id).sort.reverse
-      end
-    end
-  end
+if current_user.viewable?(@user)
+  json.posts ...
+  json.comments ...
+  json.likes ...
 end
+```
 
-json.posts do
-  json.byId do
-    @user.received_posts.each do |post|
-      json.set! post.id do
-        json.extract! post, :id, :content, :author_id, :receiver_id
-        json.created_at post.created_at.strftime('%a %b %d %Y')
-        json.comment_id do
-          json.array! post.comments.pluck(:id)
-        end
-        json.like_id do
-          json.array! post.likes.pluck(:id)
-        end
-        json.liked post.likes.find_by(user_id: current_user.id)
-      end
-    end
-  end
+A friendship key was also added into the User#show JSON payload for the user requested in order to simplify the logic on the front end. Doing allows the front end to render different content by simply checking if the current user has a friendship with the requested user. This friendship key in the user objects slice of the state on the front end also allows for easy deletion of friends as the friendship ID is readily available.
 
-  json.allId do
-    json.array! @user.received_posts.pluck(:id).sort.reverse #reverse ID here so posts are sorted by most recent
-  end
-end
-
-json.comments do
-
-  json.byId do
-    @user.received_posts_comments.each do |comment|
-      json.set! comment.id do
-        json.extract! comment, :id, :content, :parent_comment_id, :author_id, :post_id
-        json.created_at comment.created_at.strftime('%a %b %d %Y')
-      end
-    end
-  end
-
-  json.allId do
-    json.array! @user.received_posts_comments.pluck(:id)
-  end
-
-end
-
-json.likes do
-
-  json.byId do
-    @user.received_posts_likes.each do |like|
-      json.set! like.id do
-        json.extract! like, :id, :liked_id, :liked_type, :user_id
-      end
-    end
-  end
-
-  json.allId do
-    json.array! @user.received_posts_likes.pluck(:id)
-  end
-  
-end
+JSON Jbuilder User#show payload snippet
+```
+  json.friendship @user.friendships.find_by(friend_id: current_user.id)
 ```
 
 ## News Feed
@@ -159,9 +102,9 @@ case RECEIVE_USER:
 - User uploads for profile pictures and cover photos
 - User information editing
 - Notifications
+- Add additional error handling for likes and comments
 - Responsive design for and CSS tweaks
 - Photo posts and links with previews
-- Deleting friendships
 - Infinite scroll for news feed along with a refresh interval
 - Refactoring user payloads to produce less data when the current user isn't friends with the requested user
 - Facebook story :)
