@@ -17,7 +17,7 @@ amazon:
   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
   region: us-west-1
-  bucket: facespace-herokuapp
+  bucket: facespaced-herokuapp
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
