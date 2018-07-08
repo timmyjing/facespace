@@ -85,7 +85,7 @@
 .post-likes {
   border-top: 1px solid #dddfe2;
   border-bottom: 1px solid #dddfe2;
-  margin-top: 5px;
+  /* margin-top: 5px; */
 }
 
 .post-actions {
@@ -119,10 +119,9 @@
 
 .post-edit {
   resize: none;
-  width: 100%;
+  width: 499px;
   border: 1px solid #365899;
   border-radius: 5px;
-  padding: 2.5px;
 }
 
 .file-input {
@@ -130,15 +129,22 @@
 }
 
 .post-photo-btn {
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 10px;
+  /* border: 1px solid #555; */
   background: #edf0f5;
   font-family: sans-serif;
   font-size: 12px;
   font-weight: 700;
   color: #555;
   margin-left: 10px;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  line-height: 18px;
+}
+
+.post-photo-btn:hover {
+  background: #dce1e9;
 }
 
 .post-btns {

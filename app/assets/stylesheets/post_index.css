@@ -9,10 +9,11 @@
 
 .post-index-item {
   border: 1px solid #ddd;
-  padding: 5px;
+  /* padding: 5px; */
   background: white;
   margin-bottom: 15px;
-  width: 491px;
+  /* width: 491px; */
+  width: 501px;
   border-radius: 5px;
   font-family: Arial;
 }
@@ -52,6 +53,7 @@
   overflow-wrap: break-word;
   padding: 5px 10px;
   white-space: pre-wrap;
+  margin-bottom: 5px;
 }
 
 

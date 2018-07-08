@@ -47,7 +47,7 @@ class PostIndexItem extends React.Component {
     const receiverLink = (author.id !== receiver.id ?
       <Link to={`/users/${receiver.id}`}> <span className="tiny-arrow">▶</span> {receiver.first_name} {receiver.last_name}</Link> : null);
 
-    const contentDisplay = this.state.update === true ? (<textarea value={this.state.content} onChange={this.handleInput} className="post-edit"/> ) : (post.content);
+    const contentDisplay = this.state.update === true ? (<textarea value={this.state.content} onChange={this.handleInput} className="post-edit"/> ) : <div className="post-content">{post.content}</div>;
     const imageDisplay = post.image ? <img className="post-image" src={post.image} /> : null;
     const postButton = this.state.update === true ? <li onClick={this.handleSubmit}>Edit</li> : <li><i className="post-action-comment" />Comment</li>;
     return (
@@ -70,7 +70,7 @@ class PostIndexItem extends React.Component {
           </div>
         </div>
       </div>
-      <div className="post-content">
+      <div>
         {contentDisplay}
         {imageDisplay}
       </div>
