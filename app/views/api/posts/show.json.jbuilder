@@ -1,4 +1,5 @@
-json.extract! @post, :id, :author_id, :receiver_id, :content
+json.extract! @post, :id, :author_id, :receiver_id, :content, :image
+json.image @post.image.attached? ? rails_blob_path(@post.image, disposition: "attachment") : false
 json.created_at @post.created_at.strftime('%a %b %d %Y')
 json.comment_id do
   json.array! @post.comments.pluck(:id) || []

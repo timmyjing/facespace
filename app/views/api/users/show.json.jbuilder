@@ -47,6 +47,7 @@ if current_user.viewable?(@user)
         json.set! post.id do
           json.extract! post, :id, :content, :author_id, :receiver_id
           json.created_at post.created_at.strftime('%a %b %d %Y')
+          json.image post.image.attached? ? rails_blob_path(post.image, disposition: "attachment") : false
           json.comment_id do
             json.array! post.comments.pluck(:id)
           end

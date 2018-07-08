@@ -28,9 +28,10 @@
   background: #3c66af;
   border: 1px solid #dddfe2;
   border-radius: 5px;
-  position: relative;
+  margin-right: 10px;
+  /* position: relative;
   top: 8px;
-  left: 435px;
+  left: 435px; */
 }
 
 

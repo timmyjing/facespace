@@ -61,6 +61,10 @@ class User < ApplicationRecord
   through: :received_posts,
   source: :commenters
 
+  has_many :received_posts_images,
+  through: :received_posts,
+  source: :image_attachment
+
 
   def likes?(id)
     self.likes.exists?(id)

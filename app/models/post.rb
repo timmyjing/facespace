@@ -23,4 +23,6 @@ class Post < ApplicationRecord
   through: :likes,
   source: :user
 
+  has_one_attached :image
+  
 end

@@ -4,6 +4,7 @@ json.posts do
     @posts.each do |post|
       json.set! post.id do
         json.extract! post, :id, :receiver_id, :author_id, :content
+        json.image post.image.attached? ? rails_blob_path(post.image, disposition: "attachment") : false
         json.created_at post.created_at.strftime('%a %b %d %Y')
         json.comment_id do
           json.array! post.comments.pluck(:id).sort #comments sorted by id from oldest to newest

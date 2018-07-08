@@ -6,7 +6,7 @@ class Api::PostsController < ApplicationController
     # how would i get older posts? hmm
     # @posts = Post.all.includes(:author, :receiver).last(15)
     network = current_user.network
-    @posts =  Post.where({author_id: network}).or(Post.where({receiver_id: network}))
+    @posts =  Post.with_attached_image.where({author_id: network}).or(Post.with_attached_image.where({receiver_id: network}))
       .includes(:author, :receiver, :commenters, :comments, :likes).distinct.last(25)
     render 'api/posts/index'
   end
@@ -44,6 +44,6 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:author_id, :receiver_id, :content)
+    params.permit(:author_id, :receiver_id, :content, :image)
   end
 end

@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments, :friendships).find(params[:id])
+    @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments, :friendships, :received_posts_images).find(params[:id])
     if @user
       render 'api/users/show'
     else

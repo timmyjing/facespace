@@ -41,13 +41,14 @@ class PostIndexItem extends React.Component {
                             (post.liked ?
                               (post.like_id.length > 1 ?
                                 (post.like_id.length > 2 ? `You and ${post.like_id.length - 1} others think this is sweet.` : 'You and 1 other think this is sweet.') :
-                                  'You think this is sweet.') : (post.like_id.length > 1 ? `${post.like_id.length} sweets` : `1 sweet`)) : "";
+                                  'You think this is sweet.') : (post.like_id.length > 1 ? `${post.like_id.length} sweets` : `1 sweet`)) : null;
 
+    const likesDisplay = likesMessage ? <div className="post-likes-count">{likesMessage}</div> : null;
     const receiverLink = (author.id !== receiver.id ?
       <Link to={`/users/${receiver.id}`}> <span className="tiny-arrow">▶</span> {receiver.first_name} {receiver.last_name}</Link> : null);
 
     const contentDisplay = this.state.update === true ? (<textarea value={this.state.content} onChange={this.handleInput} className="post-edit"/> ) : (post.content);
-
+    const imageDisplay = post.image ? <img className="post-image" src={post.image} /> : null;
     const postButton = this.state.update === true ? <li onClick={this.handleSubmit}>Edit</li> : <li><i className="post-action-comment" />Comment</li>;
     return (
       <li className="post-index-item">
@@ -71,6 +72,7 @@ class PostIndexItem extends React.Component {
       </div>
       <div className="post-content">
         {contentDisplay}
+        {imageDisplay}
       </div>
       <div className="post-likes">
           <ul className="post-actions">
@@ -79,10 +81,7 @@ class PostIndexItem extends React.Component {
             <li><i className="post-action-share" />Share</li>
           </ul>
       </div>
-      <div className="post-likes-count">
-        {likesMessage}
-      </div>
-      <hr />
+      {likesDisplay}
       <span className="post-comment-container">
         <CommentsContainer post={post} comments={comments} />
       </span>
