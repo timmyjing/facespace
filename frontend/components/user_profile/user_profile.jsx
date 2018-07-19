@@ -11,9 +11,17 @@ class UserProfile extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      loading: true
+      loading: true,
+      profileImage: null,
+      coverImage: null,
+      info: null
     };
     this.requestUser = this.requestUser.bind(this);
+    this.handleProfileImageUpload = this.handleProfileImageUpload.bind(this);
+    this.handleCoverImageUpload = this.handleCoverImageUpload.bind(this);
+    this.photoInput = React.createRef();
+    this.coverInput = React.createRef();
+    this.updateUser = this.updateUser.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +43,29 @@ class UserProfile extends React.Component {
     }
   }
 
+  handleProfileImageUpload(e) {
+    this.setState({profileImage: this.photoInput.current.files[0]}, this.updateUser);
+  }
+
+  handleCoverImageUpload(e) {
+    console.log(e);
+    this.setState({coverImage: this.coverInput.current.files[0]}, this.updateUser);
+  }
+
+  updateUser() {
+    console.log('hi');
+    const {info, profileImage, coverImage} = this.state;
+    const {currentUser} = this.props;
+    const formData = new FormData();
+    const updateCurrentUser = this.props.updateUser(currentUser.id);
+    console.log(coverImage);
+    if (info) formData.append('info', info);
+    if (profileImage) formData.append('profile_image', profileImage);
+    if (coverImage) formData.append('cover_image', coverImage);
+    updateCurrentUser(formData);
+    this.setState({info: null, coverImage: null, profileImage: null});
+  }
+
   render() {
     const {deleteFriend, user, updateFriendRequest, createFriendRequest , users, currentUser, friendRequests} = this.props;
     if (this.state.loading || !user || user.friends_id === undefined) return null;
@@ -44,9 +75,11 @@ class UserProfile extends React.Component {
     user.profile_img_url = user.profile_img_url ? user.profile_img_url : '/assets/default-user.jpg';
     return (
       <div className="user-profile-container">
+        <input type="file" id="profile-image-input" className="file-input" multiple={false}  onChange={this.handleProfileImageUpload} ref={this.photoInput} />
+        <input type="file" id="cover-photo-input" className="file-input" multiple={false}  onChange={this.handleCoverImageUpload} ref={this.coverInput} />
         <UserProfileHeader currentUser={currentUser} user={user} updateFriendRequest={updateFriendRequest}
           outgoingUserId={friendRequests.outgoingUserId} createFriendRequest={createFriendRequest}
-          incomingUserId={friendRequests.incomingUserId} deleteFriend={deleteFriend} />
+          incomingUserId={friendRequests.incomingUserId} deleteFriend={deleteFriend}/>
         <UserProfileFriendsContainer friends={friends} numFriends={numFriends} />
 
         <UserProfileDetail user={user} />

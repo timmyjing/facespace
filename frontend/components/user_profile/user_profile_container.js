@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import UserProfile from './user_profile';
 import { withRouter } from 'react-router'
-import {requestUser} from '../../actions/user_actions';
+import {requestUser, updateUser} from '../../actions/user_actions';
 import {createFriendRequest, acceptFriendRequest, declineFriendRequest, deleteFriend} from '../../actions/friend_request_actions';
 
 
@@ -26,7 +26,8 @@ const mapDispatchToProps = dispatch => ({
   createFriendRequest: requestee_id => dispatch(createFriendRequest(requestee_id)),
   acceptFriendRequest: request => dispatch(acceptFriendRequest(request)),
   declineFriendRequest: request => dispatch(declineFriendRequest(request)),
-  deleteFriend: id => dispatch(deleteFriend(id))
+  deleteFriend: id => dispatch(deleteFriend(id)),
+  updateUser: id => formData => dispatch(updateUser(id)(formData))
 });
 
 

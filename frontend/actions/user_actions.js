@@ -55,6 +55,6 @@ export const searchUsers = query => dispatch => (
     errors => dispatch(clearSearchedUsers()))
 );
 
-export const updateUser = user => dispatch => (
-  UserApiUtil.updateUser(user).then(user => dispatch(receiveUser(user)) , errors => console.log(errors))
+export const updateUser = id => formData => dispatch => (
+  UserApiUtil.updateUser(id)(formData).then(user => dispatch(receiveUser(user)) , errors => console.log(errors))
 );

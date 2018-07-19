@@ -21,10 +21,13 @@ export const searchUsers = query => (
   })
 );
 
-export const updateUser = user => (
+
+export const updateUser = userId => formData => (
   $.ajax({
-    url: `api/users/${id}`,
+    url: `api/users/${userId}`,
     method: 'PATCH',
-    data: { user }
+    data: formData,
+    processData: false,
+    contentType: false
   })
 );

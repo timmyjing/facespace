@@ -17,7 +17,8 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments, :friendships, :received_posts_images).find(params[:id])
+    # @user = User.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments, :friendships, :received_posts_images).find(params[:id])
+    @user = User.with_attached_profile_image.with_attached_cover_image.includes(:friends, :received_posts, :received_posts_likes, :received_posts_comments, :friendships, :received_posts_images).find(params[:id])
     if @user
       render 'api/users/show'
     else
@@ -50,6 +51,7 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender, :profile_img_url, :cover_img_url)
+    # params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender, :profile_img_url, :cover_img_url)
+    params.permit(:email, :password, :first_name, :last_name, :birth_date, :gender, :profile_image, :cover_image)
   end
 end
