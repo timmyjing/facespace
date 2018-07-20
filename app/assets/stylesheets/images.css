@@ -26,7 +26,7 @@
   padding: 5px;
   object-fit: cover;
   outline: 2px solid white;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .friend-list-image {
@@ -50,4 +50,8 @@
   background-position: center;
   background-size: cover;
   vertical-align: center;
+}
+
+.post-image {
+  border-top: 1px solid #ddd;
 }

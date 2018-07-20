@@ -6,14 +6,16 @@ import { HashLink } from 'react-router-hash-link'
 const UserProfileHeader = ({deleteFriend, user, createFriendRequest, updateFriendRequest, currentUser, outgoingUserId, incomingUserId, handlePhoto}) => (
   <div className="user-profile-header">
 
-    <div className="user-cover-photo" onClick={currentUser.id === user.id ? () => document.getElementById('cover-photo-input').click() : null}>
+    <div className="user-cover-photo profiletooltip">
+      {currentUser.id === user.id ? <div class="covertooltiptext" onClick={ () => document.getElementById('cover-photo-input').click()}><div><i className="profile-i-camera"/></div><div>Update Cover Photo</div></div> : null }
       { user.cover_img_url !== null ? (<img src={user.cover_img_url} />) :
       (<div className="user-no-cover" ></div>) }
     </div>
 
     <div className="user-profile-image-container">
-      <div className='div-image user-profile-image' onClick={currentUser.id === user.id ? () => document.getElementById('profile-image-input').click() : null} title={`${user.first_name} ${user.last_name}` === 'Aaron Wayne' ? 'Wayne Train' : `${user.first_name} ${user.last_name}`}
+      <div className='div-image user-profile-image profiletooltip' title={`${user.first_name} ${user.last_name}` === 'Aaron Wayne' ? 'Wayne Train' : `${user.first_name} ${user.last_name}`}
         style={{backgroundImage: `url(${user.profile_img_url})`}}>
+        {currentUser.id === user.id ? <div class="profiletooltiptext" onClick={ () => document.getElementById('profile-image-input').click()}><div><i className="profile-i-camera"/></div><div style={{width: '100px'}}>Update Profile Picture</div></div> : null }
       </div>
     </div>
 
