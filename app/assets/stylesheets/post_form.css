@@ -30,7 +30,7 @@
 } */
 
 .post-form-top-border {
-  height: 34px;
+  /* height: 34px; */
   background: #f6f7f9;
   color: #1d2129;
   border-top-left-radius: 5px;
@@ -141,6 +141,9 @@
   cursor: pointer;
   letter-spacing: 0.2px;
   line-height: 18px;
+  width: 95px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .post-photo-btn:hover {

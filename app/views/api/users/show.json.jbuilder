@@ -10,6 +10,8 @@ json.users do
     end
     json.set! @user.id do
       json.extract! @user, :id, :profile_img_url, :first_name, :last_name, :location, :cover_img_url, :bio
+      json.profile_img_url @user.profile_image.attached? ? rails_blob_path(@user.profile_image, disposition: "attachment") : @user.profile_img_url
+      json.cover_img_url @user.cover_image.attached? ? rails_blob_path(@user.cover_image, disposition: "attachment") : @user.cover_img_url
       json.gender @user.gender.capitalize
       json.birth_date @user.birth_date.strftime('%b %d %Y')
       json.friends_id do

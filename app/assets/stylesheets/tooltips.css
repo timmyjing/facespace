@@ -43,3 +43,66 @@
     visibility: visible;
     opacity: 1;
 }
+
+.profiletooltip {
+    /* position: relative; */
+    display: hidden;
+    /* border-bottom: 1px dotted black; */
+}
+
+.profiletooltip .profiletooltiptext {
+    visibility: hidden;
+    width: 170px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    /* border-radius: 6px; */
+    padding: 15px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 0%;
+    left: 0%;
+    /* margin-left: -60px; */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.profiletooltip:hover .profiletooltiptext {
+    visibility: visible;
+    opacity: 0.8;
+    background-color: #111;
+}
+
+.covertooltiptext {
+    visibility: hidden;
+    width: 170px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 40px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.profiletooltip:hover .covertooltiptext {
+    visibility: visible;
+    opacity: 0.8;
+    background-color: #111;
+}

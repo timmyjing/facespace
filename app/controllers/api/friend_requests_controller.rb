@@ -2,9 +2,9 @@ class Api::FriendRequestsController < ApplicationController
   before_action :require_login
   
   def index
-    @requests = current_user.friend_requests
+    @requests = current_user.friend_requests.includes(:requester)
     incoming_users = @requests.map {|request| request.requester}
-    @outgoing = current_user.friends_requested
+    @outgoing = current_user.friends_requested.includes(:requestee)
     outgoing_users = @outgoing.map {|request| request.requestee}
     @users = incoming_users + outgoing_users
     render 'api/friend_requests/index'

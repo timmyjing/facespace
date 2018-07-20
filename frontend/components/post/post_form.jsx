@@ -59,7 +59,14 @@ class PostForm extends React.Component {
         </div>
         <div className="post-btns" >
           <input type="file" id="post-photo-input" className="file-input" multiple={false}  onChange={this.handleFile} ref={this.fileInput} />
-          <label className="post-photo-btn" onClick={() => document.getElementById('post-photo-input').click()}>Photo/Video</label>
+          <label className="post-photo-btn" onClick={() => document.getElementById('post-photo-input').click()}>
+            <div>
+              <i className="profile-i-photo"/>
+            </div>
+            <div>
+              Photo/Video
+            </div>
+          </label>
           <button onClick={this.handleSubmit} className="post-form-btn">Post</button>
         </div>
       </form>);

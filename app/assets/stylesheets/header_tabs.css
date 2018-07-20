@@ -32,6 +32,7 @@
   width: 42px;
   /* width: 75px; */
   text-align: center;
+  cursor: pointer;
 }
 
 .header-home-tab {

@@ -54,8 +54,17 @@
 
 [class*="search-icon"] {
   overflow: hidden;
-  height: 24px;
-  width: 24px;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+[class*="profile-i-"] {
+  overflow: hidden;
+  height: 18px;
+  width: 18px;
   position: absolute;
 }
 
@@ -167,4 +176,12 @@
 
 .nav-i-news {
   background: asset-url('folded-newspaper.png');
+}
+
+.profile-i-camera {
+  background: asset-url('camera_white.png');
+}
+
+.profile-i-photo {
+  background: asset-url('photo_black.png');
 }

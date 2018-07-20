@@ -36,10 +36,7 @@
 .user-cover-photo img {
   width: 851px;
   height: 315px;
-  /* margin: 0 auto; */
   position: relative;
-  /* z-index: -2px;
-  left: -1px; */
 }
 
 .user-profile-image-container {
