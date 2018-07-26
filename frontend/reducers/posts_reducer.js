@@ -30,7 +30,7 @@ const postsReducer = (state = defaultState, action) => {
     case RECEIVE_USER:
       // return merge(newState, action.payload.posts);
       // when loading a user profile, only store their posts in the post slice of state, news feed fetches new posts anyways
-      if (!action.payload.view_content) return defaultState;
+      // if (!action.payload.view_content) return defaultState;
       newState.byId = action.payload.posts.byId || {};
       newState.allId = action.payload.posts.allId;
       return newState;

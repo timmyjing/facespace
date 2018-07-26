@@ -3,12 +3,27 @@ import React from 'react';
 
 const UserProfileDetail = ({user}) => (
   <div id="user-info" className="user-profile-info profile-container">
-    <h2>Intro</h2>
+    <div className="detail-row">
+      <i className="detail-i-earth" />
+      <h2>Intro</h2>
+    </div>
+    {user.bio ? <p>{user.bio}</p> : null }
     <hr />
-    {user.location ? <p>Lives in: {user.location}</p> : null }
-    {user.gender ? <p>Gender: {user.gender}</p> : null }
-    {user.birth_date ? <p>Birthday: {user.birth_date}</p> : null }
-    {user.bio ? <p>About me: {user.bio}</p> : null }
+    {user.location ? 
+      <div className="detail-row">
+        <i className="detail-i-house" />
+        <p> Lives in: {user.location}</p>
+      </div> : null }
+    {user.gender ? 
+      <div className="detail-row">
+        <i className="detail-i-gender" />
+        <p>Gender: {user.gender}</p>
+      </div>: null }
+    {user.birth_date ? 
+      <div className="detail-row">
+        <i className="detail-i-birthday" />
+        <p> Birthday: {user.birth_date}</p>
+      </div>: null }
   </div>
 );
 

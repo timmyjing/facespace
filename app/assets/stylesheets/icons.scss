@@ -68,6 +68,14 @@
   position: absolute;
 }
 
+
+[class*="detail-i-"] {
+  overflow: hidden;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+}
+
 .search-icon {
   background: asset-url('search.png');
 }
@@ -184,4 +192,20 @@
 
 .profile-i-photo {
   background: asset-url('photo_black.png');
+}
+
+.detail-i-birthday {
+  background: asset-url('birthday.png');
+}
+
+.detail-i-gender {
+  background: asset-url('gender.png');
+}
+
+.detail-i-house {
+  background: asset-url('house.png');
+}
+
+.detail-i-earth {
+  background: asset-url('earth.png');
 }
