@@ -18,14 +18,14 @@ json.users do
         json.array! @user.friends.pluck(:id).shuffle
       end
       json.friendship @user.friendships.find_by(friend_id: current_user.id)
-      if current_user.viewable?(@user)
+      #if current_user.viewable?(@user)
         json.post_id do
           json.array! @user.received_posts.pluck(:id).sort.reverse
         end
-      end
+     # end
     end
 
-    if current_user.viewable?(@user)
+    #if current_user.viewable?(@user)
       @user.received_post_authors.each do |author|
         json.set! author.id do
           json.partial! 'api/users/user', user: author
@@ -36,13 +36,13 @@ json.users do
           json.partial! 'api/users/user', user: commenter
         end
       end
-    end
+    #end
   end
 end
 
-json.view_content current_user.viewable?(@user)
+#json.view_content current_user.viewable?(@user)
 
-if current_user.viewable?(@user)
+#if current_user.viewable?(@user)
   json.posts do
     json.byId do
       @user.received_posts.each do |post|
@@ -98,4 +98,4 @@ if current_user.viewable?(@user)
       json.array! @user.received_posts_likes.pluck(:id)
     end
   end
-end
+#end

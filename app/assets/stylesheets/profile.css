@@ -82,10 +82,10 @@
 }
 
 .user-profile-info {
-  position: absolute;
-  max-height: 280px;
+  position: relative;
+  /* min-height: 280px; */
   width: 306px;
-  top: 370px;
+  /* top: 370px; */
   padding: 10px;
   font-family: sans-serif;
 }
@@ -93,6 +93,8 @@
 .user-profile-info p {
   font-size: 13px;
   font-weight: 500;
+  overflow-wrap: break-word;
+  padding: 3px;
 }
 .friend-list-item {
   height: 101px;
@@ -108,16 +110,17 @@
 }
 
 .friend-list-container {
-  position: absolute;
+  position: relative;
   border: 0.5px solid #ddd;
   width: 310px;
   padding: 5px 10px;
-  top: 520px;
+  /* top: 520px; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 }
 
 .friend-list-item-name {
@@ -193,4 +196,75 @@
   float: right;
   cursor: pointer;
   color: #365899;
+}
+
+.user-edit-form {
+  background-color: white;
+  font-family: sans-serif;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  color: #555;
+}
+
+.user-edit-input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 400px;
+  font-weight: 500;
+}
+
+.user-edit-modal {
+  background-color: white; 
+  padding: 50px;
+  border: 1px solid #aaa;
+  width: 700px;
+}
+
+.user-edit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.user-edit-row h2 {
+  font-weight: 700;
+}
+
+.user-edit-submit-btn {
+  border: 1px solid #aaa;
+  padding: 10px 40px;
+}
+
+.user-edit-submit-btn:hover {
+  background-color: #DCDCDC;
+}
+
+.user-side-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  flex-direction: column;
+  top: 370px;
+}
+
+.user-modal-close {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+}
+
+.detail-row h2 {
+  margin-left: 25px;
+}
+
+.detail-row p {
+  margin-left: 20px;
 }

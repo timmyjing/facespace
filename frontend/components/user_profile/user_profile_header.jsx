@@ -3,7 +3,7 @@ import Button from '../button/button';
 import { HashLink } from 'react-router-hash-link'
 
 
-const UserProfileHeader = ({deleteFriend, user, createFriendRequest, updateFriendRequest, currentUser, outgoingUserId, incomingUserId, handlePhoto}) => (
+const UserProfileHeader = ({deleteFriend, user, createFriendRequest, updateFriendRequest, currentUser, outgoingUserId, incomingUserId, handlePhoto, openEditModal}) => (
   <div className="user-profile-header">
 
     <div className="user-cover-photo profiletooltip">
@@ -29,7 +29,7 @@ const UserProfileHeader = ({deleteFriend, user, createFriendRequest, updateFrien
         (outgoingUserId.indexOf(user.id) === -1 && incomingUserId.indexOf(user.id) === -1 ?
           <Button onClick={() => createFriendRequest(user.id)} label={'\ufe62 Add Friend'}/> :
           <Button label={"Pending"} />) : <button onClick={() => deleteFriend(user.friendship.id)} className='grey-button friended-button'>{'\u2714 Friends'}</button> ):
-        <Button label={"Edit Info"} />
+        <Button label={"Edit Info"} onClick={openEditModal} />
       }
       { currentUser.id !== user.id? <Button label={"Send Message"} /> : <Button label={"View Activity Log"} />}
     </div>

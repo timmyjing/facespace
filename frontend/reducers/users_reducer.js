@@ -36,6 +36,9 @@ const usersReducer = (state = defaultState, action) => {
       return merge(action.users, newState);
     case ACCEPT_FRIEND_REQUEST:
       newState.byId[action.request.requestee_id].friends_id.push(action.request.requester_id);
+      newState.byId[action.request.requester_id].friends_id = newState.byId[action.request.requester_id].friends_id || [];
+      newState.byId[action.request.requester_id].friends_id.push(action.request.requestee_id);
+      newState.byId[action.request.requester_id].friendship = true;
       return newState;
     case REMOVE_FRIEND:
       newState.byId[action.friendship.user_id].friendship = null;

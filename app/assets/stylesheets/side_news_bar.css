@@ -1,8 +1,8 @@
 .side-news-bar {
   border: 1px solid #ddd;
-  position: fixed;
-  right: 100px;
-  top: 54px;
+  position: absolute;
+  left: 540px;
+  top: 12px;
   border-radius: 5px;
   background: white;
   padding: 10px;
