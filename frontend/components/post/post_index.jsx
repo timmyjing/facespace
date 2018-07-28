@@ -39,30 +39,40 @@ class PostIndex extends React.Component {
   renderModal() {
     const customStyles = {
       content : {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)'
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        width: '500px',
+        backgroundColor: '#f6f7f9',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        fontFamily: 'sans-serif'
       }
     };
     const {content} = this.state;
+    const {currentUser} = this.props;
     return (
       <Modal
         isOpen={this.state.modalIsOpen}
         onRequestClose={this.closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
       >
-      <div>
-        <div>Edit Post</div>
-        <button onClick={this.closeModal}>close</button>
+      <div className="post-edit-header">
+        <div><h2>Edit Post</h2></div>
+        <div>
+          <button onClick={this.closeModal} className="user-modal-close">&#10005;</button>
+        </div>
       </div>
-      <form>
-        <textarea className="post-input" type="text" onChange={this.handleInput} value={this.state.content} />
+        <div className="post-edit-input">
+          <UserImageThumb img={currentUser.profile_img_url} className="post-user-thumb"/> 
+          <textarea type="text" onChange={this.handleInput} value={this.state.content} />
+        </div>
         <button className="post-form-btn" onClick={this.handleSubmit}>Save</button>
-      </form>
     </Modal>
     );
   }
