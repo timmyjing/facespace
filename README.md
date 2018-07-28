@@ -103,7 +103,7 @@ case RECEIVE_USER:
 - User information editing
 - Notifications
 - Add additional error handling for likes and comments
-- Responsive design for and CSS tweaks
+- Responsive design and CSS tweaks
 - Photo posts and links with previews
 - Infinite scroll for news feed along with a refresh interval
 - Refactoring user payloads to produce less data when the current user isn't friends with the requested user
