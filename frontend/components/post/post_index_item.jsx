@@ -32,7 +32,10 @@ class PostIndexItem extends React.Component {
   }
 
   toggleEdit() {
-    this.setState({update: !this.state.update, displayOptions: false});
+    // this.setState({update: !this.state.update, displayOptions: false});
+    console.log(this.props.post);
+    this.props.openEditModal(this.props.post);
+    this.setState({displayOptions: false});
   }
 
   toggleOptions() {
@@ -40,7 +43,7 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    const {post, receiver, author, currentUser, deletePost, updatePost, comments, unlikePost, likePost, likes, users } = this.props;
+    const {post, receiver, author, currentUser, deletePost, updatePost, comments, unlikePost, likePost, likes, users, openEditModal } = this.props;
     const {displayOptions} = this.state;
     const likesMessage = post.like_id.length !== 0 ?
                             (post.liked ?
