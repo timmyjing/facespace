@@ -131,7 +131,7 @@ class UserProfile extends React.Component {
         </div>
 
         { user.friendship !== null || currentUser.id === user.id ? (
-          <div>
+          <div className="profile-post-container">
             <CreatePostFormContainer className={"post-form-profile"} user={user} />
             <PostIndexContainer />
           </div>

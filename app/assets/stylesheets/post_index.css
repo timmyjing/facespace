@@ -15,14 +15,15 @@
   /* width: 491px; */
   width: 501px;
   border-radius: 5px;
-  font-family: Arial;
+  font-family: sans-serif;
+  position: relative;
 }
 
 .post-name-tag {
   text-align: center;
   font-size: 16px;
   font-weight: 500;
-  font-family: Arial;
+  font-family: sans-serif;
   color: #365899;
   display: flex;
   align-items: center;
@@ -74,4 +75,46 @@
   position: relative;
   right: -350px;
   top: 17px;
+}
+
+.post-options-show {
+  display: block;
+  position: absolute;
+  border: 1px solid #555;
+  border-radius: 5px;
+  /* padding: 5px; */
+  background-color: white;
+  font-size: 12px;
+  float: left;
+  z-index: 2;
+  width: 80px;
+  right: 0px;
+  font-family: sans-serif;
+  box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+.post-options-hide {
+  display: none;
+}
+
+.post-options-item {
+  cursor: pointer;
+  text-align: left;
+  padding: 5px;
+  line-height: 20px;
+}
+
+.post-options-item:hover {
+  background-color: #ddd;
+}
+
+.post-options {
+  position: absolute;
+  right: 10px;
+  padding: 5px;
+}
+
+.post-options button {
+  font-size: 22px;
+  font-weight: 700;
 }
