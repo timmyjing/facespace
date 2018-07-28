@@ -10,33 +10,40 @@ class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      update: false,
-      content: this.props.post.content,
+      // update: false,
+      // content: this.props.post.content,
+      displayOptions: false
     };
 
-    this.handleInput = this.handleInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleInput = this.handleInput.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.toggleOptions = this.toggleOptions.bind(this);
   }
 
-  handleInput(e) {
-    this.setState({content: e.target.value});
-  }
+  // handleInput(e) {
+  //   this.setState({content: e.target.value});
+  // }
 
-  handleSubmit(e) {
-    e.preventDefault;
-    const post = {content: this.state.content, id: this.props.post.id};
-    this.props.updatePost(post).then( () => this.setState({update: false}));
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault;
+  //   const post = {content: this.state.content, id: this.props.post.id};
+  //   this.props.updatePost(post).then( () => this.setState({update: false}));
+  // }
 
   toggleEdit() {
-    const update = (this.state.update ? false : true);
-    this.setState({update});
+    // this.setState({update: !this.state.update, displayOptions: false});
+    this.props.openEditModal(this.props.post);
+    this.setState({displayOptions: false});
   }
 
+  toggleOptions() {
+    this.setState({displayOptions: !this.state.displayOptions});
+  }
 
   render() {
-    const {post, receiver, author, currentUser, deletePost, updatePost, comments, unlikePost, likePost, likes, users } = this.props;
+    const {post, receiver, author, currentUser, deletePost, updatePost, comments, unlikePost, likePost, likes, users, openEditModal } = this.props;
+    const {displayOptions} = this.state;
     const likesMessage = post.like_id.length !== 0 ?
                             (post.liked ?
                               (post.like_id.length > 1 ?
@@ -49,42 +56,45 @@ class PostIndexItem extends React.Component {
 
     const contentDisplay = this.state.update === true ? (<textarea value={this.state.content} onChange={this.handleInput} className="post-edit"/> ) : <div className="post-content">{post.content}</div>;
     const imageDisplay = post.image ? <img className="post-image" src={post.image} /> : null;
-    const postButton = this.state.update === true ? <li onClick={this.handleSubmit}>Edit</li> : <li><i className="post-action-comment" />Comment</li>;
     return (
       <li className="post-index-item">
-      <div className="post-name-tag">
-        <Link to={`/users/${author.id}`}>
-            <UserImageThumb img={author.profile_img_url} className="post-user-thumb"/>
-        </Link>
-
-        <div className="post-info">
-          { currentUser.id === receiver.id || currentUser.id === author.id ?
-            <i className="post-action-delete" title="Delete Post" onClick={deletePost}></i> : null }
-          { currentUser.id === author.id ? <i className="post-action-edit" title="Edit Post" onClick={this.toggleEdit}></i> : null}
-          <div>
-            <Link to={`/users/${author.id}`}>{author.first_name} {author.last_name}</Link>
-            {receiverLink}
-          </div>
-          <div className="post-date">
-            {post.created_at}
+        { currentUser.id === receiver.id || currentUser.id === author.id ? 
+          (<div className="post-options">
+            <button onClick={this.toggleOptions}>...</button>
+            <ul className={displayOptions ? 'post-options-show' : 'post-options-hide'}>
+              {currentUser.id === author.id ? <li className="post-options-item" onClick={this.toggleEdit}>Edit Post</li> : null}
+              <li className="post-options-item" onClick={deletePost}>Delete</li>
+            </ul>
+          </div>) : null }
+        <div className="post-name-tag">
+          <Link to={`/users/${author.id}`}>
+              <UserImageThumb img={author.profile_img_url} className="post-user-thumb"/>
+          </Link>
+          <div className="post-info">
+            <div>
+              <Link to={`/users/${author.id}`}>{author.first_name} {author.last_name}</Link>
+              {receiverLink}
+            </div>
+            <div className="post-date">
+              {post.created_at}
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        {contentDisplay}
-        {imageDisplay}
-      </div>
-      <div className="post-likes">
-          <ul className="post-actions">
-            { post.liked ? <li className="post-liked" onClick={() => unlikePost(post.liked.id)}><i className="post-action-like" />Sweet</li> : <li onClick={() => likePost(post.id)}><i className="post-action-like" />Sweet</li> }
-            {postButton}
-            <li><i className="post-action-share" />Share</li>
-          </ul>
-      </div>
-      {likesDisplay}
-      <span className="post-comment-container">
-        <CommentsContainer post={post} comments={comments} />
-      </span>
+        <div>
+          {contentDisplay}
+          {imageDisplay}
+        </div>
+        <div className="post-likes">
+            <ul className="post-actions">
+              { post.liked ? <li className="post-liked" onClick={() => unlikePost(post.liked.id)}><i className="post-action-like" />Sweet</li> : <li onClick={() => likePost(post.id)}><i className="post-action-like" />Sweet</li> }
+              <li><i className="post-action-comment" />Comment</li>
+              <li><i className="post-action-share" />Share</li>
+            </ul>
+        </div>
+        {likesDisplay}
+        <span className="post-comment-container">
+          <CommentsContainer post={post} comments={comments} />
+        </span>
     </li>
     );
   }

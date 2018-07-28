@@ -157,3 +157,33 @@
   width: 500px;
   height: 40px;
 }
+
+.post-edit-input {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+  font-family: sans-serif;
+  margin: 15px 0px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.post-edit-input textarea {
+  resize: none;
+  width: 400px;
+  height: 40px;
+}
+
+.post-edit-header {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.post-edit-thumb {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+}

@@ -38,7 +38,6 @@
   width: 24px;
   background-repeat: no-repeat;
   background-position: center;
-  cursor: pointer;
   position: absolute;
   top: 5px;
   margin-left: -30px;
@@ -106,8 +105,8 @@
 
 .post-action-edit {
   background: asset-url('edit.png');
-  left: 390px;
-  top: 2px;
+  // left: 390px;
+  // top: 2px;
 }
 
 .post-action-share {
@@ -120,10 +119,10 @@
 
 .post-i-delete {
   background: asset-url('smallwaste-bin.png');
-  cursor: pointer;
-  position: relative;
-  left: 390px;
-  top: 5px;
+  // cursor: pointer;
+  // position: relative;
+  // left: 390px;
+  // top: 5px;
 }
 
 
@@ -208,4 +207,8 @@
 
 .detail-i-earth {
   background: asset-url('earth.png');
+}
+
+.detail-i-friends {
+  background: asset-url('friends.png');
 }
