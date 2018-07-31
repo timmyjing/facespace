@@ -58,7 +58,9 @@ class PostIndexItem extends React.Component {
     const regexp = /https:\/\/\S+/;
     const mediaUrl = regexp.exec(post.content);
     const contentDisplay = <div className="post-content">{post.content}</div>;
-    const mediaPlayer = mediaUrl !== null ? <ReactPlayer url={mediaUrl[0]} height="360px" width="auto"/> : null;
+    const validSites = ['www.youtube.com', 'www.soundcloud.com', 'www.mixcloud.com', 'www.twitch.com', 'www.streamables.com', 'www.vimeo.com', 'www.dailymotion.com'];
+    const validMediaUrl = mediaUrl !== null ? validSites.some( site => mediaUrl[0].indexOf(site) !== -1) : false;
+    const mediaPlayer = validMediaUrl ? <ReactPlayer url={mediaUrl[0]} height="360px" width="auto"/> : null;
     return (
       <li className="post-index-item">
         { currentUser.id === receiver.id || currentUser.id === author.id ? 
