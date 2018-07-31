@@ -3,6 +3,7 @@ import UserImageThumb from '../image/user_image_thumb';
 import {Link} from 'react-router-dom';
 import Button from '../button/button';
 import CommentsContainer from '../comments/comments_container';
+import ReactPlayer from 'react-player'
 
 
 
@@ -53,9 +54,11 @@ class PostIndexItem extends React.Component {
     const likesDisplay = likesMessage ? <div className="post-likes-count">{likesMessage}</div> : null;
     const receiverLink = (author.id !== receiver.id ?
       <Link to={`/users/${receiver.id}`}> <span className="tiny-arrow">▶</span> {receiver.first_name} {receiver.last_name}</Link> : null);
-
-    const contentDisplay = this.state.update === true ? (<textarea value={this.state.content} onChange={this.handleInput} className="post-edit"/> ) : <div className="post-content">{post.content}</div>;
     const imageDisplay = post.image ? <img className="post-image" src={post.image} /> : null;
+    const regexp = /https:\/\/\S+/;
+    const mediaUrl = regexp.exec(post.content);
+    const contentDisplay = <div className="post-content">{post.content}</div>;
+    const mediaPlayer = mediaUrl !== null ? <ReactPlayer url={mediaUrl[0]} height="360px" width="auto"/> : null;
     return (
       <li className="post-index-item">
         { currentUser.id === receiver.id || currentUser.id === author.id ? 
@@ -83,6 +86,7 @@ class PostIndexItem extends React.Component {
         <div>
           {contentDisplay}
           {imageDisplay}
+          {mediaPlayer}
         </div>
         <div className="post-likes">
             <ul className="post-actions">
