@@ -31,9 +31,9 @@ class Api::UsersController < ApplicationController
     if params[:query].present?
       full_name = params[:query].split
       if full_name.length == 2
-        @users = User.where('first_name ~ ? AND last_name ~ ?', full_name[0], full_name[1])
+        @users = User.where('first_name ~ ? AND last_name ~ ?', full_name[0], full_name[1]).limit(10)
       else
-        @users = User.where('first_name ~ ?', full_name[0])
+        @users = User.where('first_name ~ ?', full_name[0]).limit(10)
       end
     end
     render 'api/users/index'

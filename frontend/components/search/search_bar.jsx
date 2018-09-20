@@ -46,7 +46,7 @@ class SearchBar extends React.Component {
     if (this.state.loading === true) this.fetchUsers();
     return (
       <div className="search-container">
-              <div className="search-i-container"><i className="search-icon" /></div>
+        <div className="search-i-container"><i className="search-icon" /></div>
                 <input onBlur={this.hideSearch} className="type-letters-here" type="text" value={this.state.query}
                   onChange={this.handleInput} placeholder="Type letters into here until it does things..." />
                 {this.state.loading === false || this.state.query !== "" ? this.renderUserIndex() : null }
