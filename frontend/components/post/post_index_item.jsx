@@ -11,35 +11,28 @@ class PostIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // update: false,
-      // content: this.props.post.content,
       displayOptions: false
     };
 
-    // this.handleInput = this.handleInput.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.toggleOptions = this.toggleOptions.bind(this);
+    this.focusCommentInput = this.focusCommentInput.bind(this);
   }
 
-  // handleInput(e) {
-  //   this.setState({content: e.target.value});
-  // }
-
-  // handleSubmit(e) {
-  //   e.preventDefault;
-  //   const post = {content: this.state.content, id: this.props.post.id};
-  //   this.props.updatePost(post).then( () => this.setState({update: false}));
-  // }
-
   toggleEdit() {
-    // this.setState({update: !this.state.update, displayOptions: false});
     this.props.openEditModal(this.props.post);
     this.setState({displayOptions: false});
   }
 
   toggleOptions() {
     this.setState({displayOptions: !this.state.displayOptions});
+  }
+
+  focusCommentInput() {
+    const postId = this.props.post.id;
+    const input = document.getElementById(`post-${postId}-comment`);
+
+    input.focus();
   }
 
   render() {
@@ -66,6 +59,7 @@ class PostIndexItem extends React.Component {
         { currentUser.id === receiver.id || currentUser.id === author.id ? 
           (<div className="post-options">
             <button onClick={this.toggleOptions}>...</button>
+            {/* TODO Refactor More Options Button */}
             <ul className={displayOptions ? 'post-options-show' : 'post-options-hide'}>
               {currentUser.id === author.id ? <li className="post-options-item" onClick={this.toggleEdit}>Edit Post</li> : null}
               <li className="post-options-item" onClick={deletePost}>Delete</li>
@@ -93,7 +87,8 @@ class PostIndexItem extends React.Component {
         <div className="post-likes">
             <ul className="post-actions">
               { post.liked ? <li className="post-liked" onClick={() => unlikePost(post.liked.id)}><i className="post-action-like" />Sweet</li> : <li onClick={() => likePost(post.id)}><i className="post-action-like" />Sweet</li> }
-              <li><i className="post-action-comment" />Comment</li>
+              {/* add focus on comment input */}
+              <li onClick={this.focusCommentInput}><i className="post-action-comment" />Comment</li>
               <li><i className="post-action-share" />Share</li>
             </ul>
         </div>

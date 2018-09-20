@@ -23,9 +23,11 @@ class CommentForm extends React.Component {
 
 
   render() {
+    const postId = this.props.post.id;
+
     return (<form className="comment-form" onSubmit={this.handleSubmit}>
                 <UserImageThumb img={this.props.currentUser.profile_img_url} className="user-thumb" />
-                <input type="text" className="post-comment" onChange={this.handleInput} value={this.state.content}
+                <input type="text" className="post-comment" onChange={this.handleInput} id={`post-${postId}-comment`} value={this.state.content}
                   placeholder="Write a comment..."/>
             </form>);
   }
