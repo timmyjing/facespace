@@ -1,7 +1,8 @@
 .search-index {
   border-style: border-box;
-  width: 64.2%;
-  margin-top: -10px;
+  /* width: 64.2%; */
+  width: 100%;
+  margin-top: -5px;
   margin-left: -5px;
   border-left: 0.2px solid #ddd;
   border-right: 0.2px solid #ddd;
@@ -11,6 +12,7 @@
   position: absolute;
   z-index: 4;
   top: 44px;
+  box-shadow: 1px 1px #ccc;
 }
 
 
@@ -43,16 +45,19 @@
   width: 60%;
   display: inline-flex;
   align-items: center;
+  position: relative;
 }
 
 
 .search-i-container {
+  /* position: relative; */
   position: absolute;
   border: 1px solid #3b5998;
   padding: 1px 7px;
   height: 24px;
   width: 24px;
-  right: 13%;
+  /* right: 13%; */
+  right: 3px;
   z-index: 4;
   background: #edf0f5;
   border-top-right-radius: 3px;
