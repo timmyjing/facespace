@@ -25,7 +25,7 @@
 }
 
 .side-nav-bar li:hover {
-  cursor: pointer;
+  cursor: not-allowed;
   background: #dfe3ee;
   border: 1px solid #ddd;
   border-radius: 2px;

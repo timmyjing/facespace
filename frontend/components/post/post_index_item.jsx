@@ -89,7 +89,7 @@ class PostIndexItem extends React.Component {
               { post.liked ? <li className="post-liked" onClick={() => unlikePost(post.liked.id)}><i className="post-action-like" />Sweet</li> : <li onClick={() => likePost(post.id)}><i className="post-action-like" />Sweet</li> }
               {/* add focus on comment input */}
               <li onClick={this.focusCommentInput}><i className="post-action-comment" />Comment</li>
-              <li><i className="post-action-share" />Share</li>
+              <li style={{cursor: 'not-allowed'}}><i className="post-action-share" />Share</li>
             </ul>
         </div>
         {likesDisplay}
