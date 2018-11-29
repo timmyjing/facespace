@@ -1,4 +1,4 @@
-import {RECEIVE_COMMENT, REMOVE_COMMENT} from '../actions/comment_actions';
+import {RECEIVE_COMMENT, REMOVE_COMMENT, RECEIVE_UPDATE} from '../actions/comment_actions';
 import {RECEIVE_POSTS} from '../actions/post_actions';
 import {RECEIVE_USER} from '../actions/user_actions';
 import merge from 'lodash/merge';
@@ -18,6 +18,9 @@ const commentsReducer = (state = defaultState, action) => {
       return newState;
     case RECEIVE_POSTS:
       newState.byId = action.comments.byId || {};
+      return newState;
+    case RECEIVE_UPDATE:
+      newState.byId[action.comment.id] = action.comment;
       return newState;
     case RECEIVE_USER:
       // if (!action.payload.view_content) return defaultState;

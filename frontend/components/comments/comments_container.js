@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import CommentIndex from './comment_index';
-import {createComment, deleteComment} from '../../actions/comment_actions';
+import {createComment, deleteComment, updateComment} from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   users: state.entities.users.byId,
@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   createComment: comment => dispatch(createComment(comment)),
-  deleteComment: id => dispatch(deleteComment(id))
+  deleteComment: id => dispatch(deleteComment(id)),
+  updateComment: comment => dispatch(updateComment(comment))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentIndex);

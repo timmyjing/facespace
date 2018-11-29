@@ -6,7 +6,7 @@ class Api::CommentsController < ApplicationController
     if @comment.save
       render 'api/comments/show'
     else
-      render json: @comment.errors.full_messages, status: 404
+      render json: @comment.errors.full_messages, status: 403
     end
   end
 
@@ -18,7 +18,20 @@ class Api::CommentsController < ApplicationController
       @comment.destroy
       render 'api/comments/show'
     else
-      render json: ['Not allowed'], status: 404
+      render json: ['Not allowed'], status: 403
+    end
+  end
+
+  def update
+    @comment = Comment.includes(:post, :commenter).find(params[:id])
+    if @comment && (@comment.commenter == current_user)
+      if @comment.update(comment_params)
+        render 'api/comments/show'
+      else
+        render json: @comment.errors.full_messages, status: 403
+      end
+    else
+      render json: ['Not authorized'], status: 403
     end
   end
 

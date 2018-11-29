@@ -101,3 +101,10 @@
   float: right;
   bottom: 0;
 }
+
+.comment-options {
+  position: relative;
+  font-size: 16px;
+  left: 20px;
+
+}

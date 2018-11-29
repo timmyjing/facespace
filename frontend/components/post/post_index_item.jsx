@@ -61,7 +61,7 @@ class PostIndexItem extends React.Component {
             <button onClick={this.toggleOptions}>...</button>
             {/* TODO Refactor More Options Button */}
             <ul className={displayOptions ? 'post-options-show' : 'post-options-hide'}>
-              {currentUser.id === author.id ? <li className="post-options-item" onClick={this.toggleEdit}>Edit Post</li> : null}
+              {currentUser.id === author.id ? <li className="post-options-item" onClick={this.toggleEdit}>Edit</li> : null}
               <li className="post-options-item" onClick={deletePost}>Delete</li>
             </ul>
           </div>) : null }
